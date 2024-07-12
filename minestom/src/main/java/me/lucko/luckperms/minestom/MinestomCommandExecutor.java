@@ -28,7 +28,7 @@ public final class MinestomCommandExecutor extends CommandManager {
         MinecraftServer.getCommandManager().unregister(this.command);
     }
 
-    private class LuckPermsCommand extends Command {
+    public class LuckPermsCommand extends Command {
         private final MinestomCommandExecutor commandExecutor;
 
         public LuckPermsCommand(MinestomCommandExecutor commandExecutor) {
