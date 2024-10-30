@@ -101,11 +101,3 @@ publishing {
         }
     }
 }
-
-signing {
-    def signingKeyId = findProperty("signingKeyId") as String
-    def signingKey = findProperty("signingKey") as String
-    def signingPassword = findProperty("signingPassword") as String
-    useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
-    sign publishing.publications.mavenJava
-}
