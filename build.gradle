@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.licenser) apply false
-    id("com.gradleup.nmcp") version("0.0.9") apply false
 }
 
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
@@ -16,7 +15,6 @@ subprojects {
     apply plugin: 'maven-publish'
     apply plugin: 'signing'
     apply plugin: 'org.cadixdev.licenser'
-    apply plugin: 'com.gradleup.nmcp'
 
     group = 'dev.lu15'
     version = '5.4-SNAPSHOT'
@@ -35,17 +33,6 @@ subprojects {
             showExceptions = true
             showCauses = true
             showStackTraces = true
-        }
-    }
-
-    nmcp {
-        publishAllPublications {
-            var keyUsername = "SONATYPE_USERNAME"
-            var keyPassword = "SONATYPE_PASSWORD"
-            username = findProperty(keyUsername)?.toString() ?: System.getenv(keyUsername)
-            password = findProperty(keyPassword)?.toString() ?: System.getenv(keyPassword)
-
-            publicationType = "USER_MANAGED"
         }
     }
 
