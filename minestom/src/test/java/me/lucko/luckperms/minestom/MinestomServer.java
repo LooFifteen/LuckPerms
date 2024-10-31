@@ -26,6 +26,7 @@ import net.minestom.server.extras.lan.OpenToLAN;
 import net.minestom.server.instance.InstanceContainer;
 import net.minestom.server.instance.block.Block;
 import net.minestom.server.network.ConnectionManager;
+import net.minestom.server.network.player.GameProfile;
 
 public final class MinestomServer {
 
@@ -47,7 +48,7 @@ public final class MinestomServer {
 
         // set custom player provider (optional)
         ConnectionManager connectionManager = MinecraftServer.getConnectionManager();
-        connectionManager.setPlayerProvider((uuid, username, connection) -> new ExamplePlayer(luckPerms, uuid, username, connection));
+        connectionManager.setPlayerProvider((connection, profile) -> new ExamplePlayer(luckPerms, profile, connection));
 
         // set up Minestom
         InstanceContainer instance = MinecraftServer.getInstanceManager().createInstanceContainer();
@@ -62,12 +63,11 @@ public final class MinestomServer {
         // set custom chat handling (optional)
         eventNode.addListener(PlayerChatEvent.class, event -> {
             if (!(event.getPlayer() instanceof ExamplePlayer player)) return;
-            event.setChatFormat(e -> Component.text().append(
+            event.setFormattedMessage(Component.text().append(
                     player.getPrefix(),
                     player.getName(),
                     player.getSuffix(),
-                    Component.text(": "),
-                    Component.text(e.getMessage())
+                    Component.text(": " + event.getRawMessage())
             ).build());
         });
 
@@ -93,7 +93,7 @@ public final class MinestomServer {
         ArgumentString permissionArgument = ArgumentType.String("permission");
         command.addSyntax((sender, context) -> {
             String permission = context.get(permissionArgument);
-            if (sender instanceof ExamplePlayer player) sender.sendMessage(player.getPermissionValue(permission).toString());
+            if (sender instanceof ExamplePlayer player) sender.sendMessage(player.getPermission(permission).toString());
             else sender.sendMessage("Sender is not a player");
         }, permissionArgument);
         commandManager.register(command);
