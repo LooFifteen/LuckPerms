@@ -12,6 +12,7 @@ import me.lucko.luckperms.minestom.context.ContextProvider;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.minestom.server.command.builder.Command;
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
@@ -44,6 +45,7 @@ public final class LuckPermsMinestom {
          * @deprecated use {@link Builder#commandRegistry(CommandRegistry)}
          */
         @Deprecated
+        @Contract("_ -> this")
         default @NotNull Builder commands(boolean enabled) {
             return enabled ? this.commandRegistry(CommandRegistry.minestom()) : this.commandRegistry(null);
         }
@@ -60,12 +62,14 @@ public final class LuckPermsMinestom {
          * @param handler the command registry handler
          * @return the builder instance
          */
+        @Contract("_ -> this")
         @NotNull Builder commandRegistry(@Nullable CommandRegistry handler);
 
         /**
          * Sets the command registry handler where LuckPerms commands
          * should be registered.
          */
+        @Contract("_, _ -> this")
         default @NotNull Builder commandRegistry(
                 @NotNull Consumer<Command> register,
                 @NotNull Consumer<Command> unregister
@@ -79,6 +83,7 @@ public final class LuckPermsMinestom {
          * @param provider the provider to add
          * @return the builder instance
          */
+        @Contract("_ -> this")
         @NotNull Builder contextProvider(@NotNull ContextProvider provider);
 
         /**
@@ -87,6 +92,7 @@ public final class LuckPermsMinestom {
          * @param providers the providers to add
          * @return the builder instance
          */
+        @Contract("_ -> this")
         @NotNull Builder contextProviders(@NotNull ContextProvider... providers);
 
         /**
@@ -95,6 +101,7 @@ public final class LuckPermsMinestom {
          * @param providers the providers to add
          * @return the builder instance
          */
+        @Contract("_ -> this")
         @NotNull Builder contextProviders(@NotNull Iterable<ContextProvider> providers);
 
 
@@ -104,6 +111,7 @@ public final class LuckPermsMinestom {
          * @param permission the permission to suggest
          * @return the builder instance
          */
+        @Contract("_ -> this")
         @NotNull Builder permissionSuggestion(@NotNull String permission);
 
         /**
@@ -112,6 +120,7 @@ public final class LuckPermsMinestom {
          * @param permissions the permissions to suggest
          * @return the builder instance
          */
+        @Contract("_ -> this")
         @NotNull Builder permissionSuggestions(@NotNull String... permissions);
 
         /**
@@ -120,6 +129,7 @@ public final class LuckPermsMinestom {
          * @param permissions the permissions to suggest
          * @return the builder instance
          */
+        @Contract("_ -> this")
         @NotNull Builder permissionSuggestions(@NotNull Iterable<String> permissions);
 
 
@@ -135,6 +145,7 @@ public final class LuckPermsMinestom {
          * @param adapter the adapter to use
          * @return the builder instance
          */
+        @Contract("_ -> this")
         @NotNull Builder configurationAdapter(@NotNull Function<LPMinestomPlugin, ConfigurationAdapter> adapter);
 
 
@@ -145,6 +156,7 @@ public final class LuckPermsMinestom {
          * @param enabled if the dependency manager should be enabled
          * @return the builder instance
          */
+        @Contract("_ -> this")
         @NotNull Builder dependencyManager(boolean enabled);
 
 
@@ -154,6 +166,7 @@ public final class LuckPermsMinestom {
          * @param logger the logger to use
          * @return the builder instance
          */
+        @Contract("_ -> this")
         @NotNull Builder logger(@NotNull Logger logger);
 
 

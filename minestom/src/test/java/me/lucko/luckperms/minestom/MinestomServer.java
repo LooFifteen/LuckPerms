@@ -26,7 +26,6 @@ import net.minestom.server.extras.lan.OpenToLAN;
 import net.minestom.server.instance.InstanceContainer;
 import net.minestom.server.instance.block.Block;
 import net.minestom.server.network.ConnectionManager;
-import net.minestom.server.network.player.GameProfile;
 
 public final class MinestomServer {
 
