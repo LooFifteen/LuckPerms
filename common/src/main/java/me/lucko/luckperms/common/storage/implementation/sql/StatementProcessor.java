@@ -23,22 +23,21 @@
  *  SOFTWARE.
  */
 
-package me.lucko.luckperms.common.context.manager;
+package me.lucko.luckperms.common.storage.implementation.sql;
 
-import com.github.benmanes.caffeine.cache.LoadingCache;
-import net.luckperms.api.query.QueryOptions;
+import java.util.Objects;
 
-public final class InlineQueryOptionsSupplier<T> implements QueryOptionsSupplier {
-    private final T key;
-    private final LoadingCache<T, QueryOptions> cache;
+public interface StatementProcessor {
 
-    public InlineQueryOptionsSupplier(T key, LoadingCache<T, QueryOptions> cache) {
-        this.key = key;
-        this.cache = cache;
+    StatementProcessor USE_BACKTICKS = s -> s.replace('\'', '`');
+
+    StatementProcessor USE_DOUBLE_QUOTES = s -> s.replace('\'', '"');
+
+    String process(String statement);
+
+    default StatementProcessor compose(StatementProcessor before) {
+        Objects.requireNonNull(before);
+        return s -> process(before.process(s));
     }
 
-    @Override
-    public QueryOptions getQueryOptions() {
-        return this.cache.get(this.key);
-    }
 }

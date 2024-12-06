@@ -1,5 +1,6 @@
 package me.lucko.luckperms.minestom.listeners;
 
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 import me.lucko.luckperms.common.config.ConfigKeys;
 import me.lucko.luckperms.common.locale.Message;
@@ -15,6 +16,7 @@ import net.minestom.server.event.EventNode;
 import net.minestom.server.event.player.AsyncPlayerConfigurationEvent;
 import net.minestom.server.event.player.AsyncPlayerPreLoginEvent;
 import net.minestom.server.event.player.PlayerDisconnectEvent;
+import net.minestom.server.network.player.GameProfile;
 
 public final class MinestomConnectionListener extends AbstractConnectionListener {
 
@@ -36,25 +38,29 @@ public final class MinestomConnectionListener extends AbstractConnectionListener
             ex.printStackTrace();
         }
 
+        GameProfile profile = event.getGameProfile();
+        UUID uuid = profile.uuid();
+        String username = profile.name();
+
         if (this.plugin.getConfiguration().get(ConfigKeys.DEBUG_LOGINS)) {
-            this.plugin.getLogger().info("Processing pre-login for " + event.getPlayerUuid() + " - " + event.getUsername());
+            this.plugin.getLogger().info("Processing pre-login for " + uuid + " - " + username);
         }
 
-        if (!event.getPlayer().isOnline()) {
-            this.plugin.getLogger().info("Another plugin has cancelled the connection for " + event.getPlayerUuid() + " - " + event.getUsername() + ". No permissions data will be loaded.");
+        if (!event.getConnection().isOnline()) {
+            this.plugin.getLogger().info("Another plugin has cancelled the connection for " + uuid + " - " + username + ". No permissions data will be loaded.");
             return;
         }
 
         try {
-            User user = loadUser(event.getPlayerUuid(), event.getUsername());
-            recordConnection(event.getPlayerUuid());
-            this.plugin.getEventDispatcher().dispatchPlayerLoginProcess(event.getPlayerUuid(), event.getUsername(), user);
+            User user = loadUser(uuid, username);
+            recordConnection(uuid);
+            this.plugin.getEventDispatcher().dispatchPlayerLoginProcess(uuid, username, user);
         } catch (Exception ex) {
-            this.plugin.getLogger().severe("Exception occurred whilst loading data for " + event.getPlayerUuid() + " - " + event.getUsername(), ex);
+            this.plugin.getLogger().severe("Exception occurred whilst loading data for " + uuid + " - " + username, ex);
 
             Component reason = TranslationManager.render(Message.LOADING_DATABASE_ERROR.build());
-            event.getPlayer().kick(reason);
-            this.plugin.getEventDispatcher().dispatchPlayerLoginProcess(event.getPlayerUuid(), event.getUsername(), null);
+            event.getConnection().kick(reason);
+            this.plugin.getEventDispatcher().dispatchPlayerLoginProcess(uuid, username, null);
         }
     }
 

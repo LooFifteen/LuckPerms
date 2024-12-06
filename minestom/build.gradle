@@ -13,6 +13,8 @@ repositories {
 }
 
 dependencies {
+    var minestom = "ccea53ac44"
+
     api(project(":common")) {
         // exclude default config providers as they are inaccessible from the minestom module anyway
         exclude group: "org.spongepowered", module: "configurate-yaml"
@@ -20,11 +22,11 @@ dependencies {
         exclude group: "org.spongepowered", module: "configurate-hocon"
         exclude group: "me.lucko.configurate", module: "configurate-toml"
     }
-    compileOnly "net.minestom:minestom-snapshots:dba90a461b"
+    compileOnly "net.minestom:minestom-snapshots:$minestom"
 
     // testing
     testImplementation project(":common")
-    testImplementation "net.minestom:minestom-snapshots:dba90a461b"
+    testImplementation "net.minestom:minestom-snapshots:$minestom"
     testImplementation "commons-net:commons-net:3.10.0" // fix vulnerability in minestom
     testImplementation "ch.qos.logback:logback-classic:1.4.14" // logger
     testImplementation "org.spongepowered:configurate-hocon:3.7.2" // configuration using hocon
