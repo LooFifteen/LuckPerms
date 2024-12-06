@@ -32,24 +32,23 @@ import me.lucko.luckperms.common.model.User;
 import me.lucko.luckperms.common.verbose.event.CheckOrigin;
 import me.lucko.luckperms.neoforge.LPNeoForgeBootstrap;
 import me.lucko.luckperms.neoforge.LPNeoForgePlugin;
-import me.lucko.luckperms.neoforge.capabilities.UserCapabilityImpl;
 import net.luckperms.api.context.ImmutableContextSet;
 import net.luckperms.api.query.QueryMode;
 import net.luckperms.api.query.QueryOptions;
 import net.luckperms.api.util.Tristate;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.neoforged.neoforge.server.permission.handler.IPermissionHandler;
+import net.neoforged.neoforge.server.permission.nodes.PermissionDynamicContext;
+import net.neoforged.neoforge.server.permission.nodes.PermissionNode;
+import net.neoforged.neoforge.server.permission.nodes.PermissionType;
+import net.neoforged.neoforge.server.permission.nodes.PermissionTypes;
 
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
-import net.neoforged.neoforge.server.permission.handler.IPermissionHandler;
-import net.neoforged.neoforge.server.permission.nodes.PermissionDynamicContext;
-import net.neoforged.neoforge.server.permission.nodes.PermissionNode;
-import net.neoforged.neoforge.server.permission.nodes.PermissionType;
-import net.neoforged.neoforge.server.permission.nodes.PermissionTypes;
 
 public class NeoForgePermissionHandler implements IPermissionHandler {
     public static final ResourceLocation IDENTIFIER = ResourceLocation.fromNamespaceAndPath(LPNeoForgeBootstrap.ID, "permission_handler");
@@ -78,12 +77,9 @@ public class NeoForgePermissionHandler implements IPermissionHandler {
 
     @Override
     public <T> T getPermission(ServerPlayer player, PermissionNode<T> node, PermissionDynamicContext<?>... context) {
-        UserCapabilityImpl capability = UserCapabilityImpl.getNullable(player);
-
-        if (capability != null) {
-            User user = capability.getUser();
-            QueryOptions queryOptions = capability.getQueryOptionsCache().getQueryOptions();
-
+        User user = plugin.getUserManager().getIfLoaded(player.getUUID());
+        if (user != null) {
+            QueryOptions queryOptions = plugin.getContextManager().getQueryOptions(player);
             T value = getPermissionValue(user, queryOptions, node, context);
             if (value != null) {
                 return value;

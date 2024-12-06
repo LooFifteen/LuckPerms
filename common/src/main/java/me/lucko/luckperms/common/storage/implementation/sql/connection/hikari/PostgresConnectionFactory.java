@@ -25,10 +25,10 @@
 
 package me.lucko.luckperms.common.storage.implementation.sql.connection.hikari;
 
+import me.lucko.luckperms.common.storage.implementation.sql.StatementProcessor;
 import me.lucko.luckperms.common.storage.misc.StorageCredentials;
 
 import java.util.Map;
-import java.util.function.Function;
 
 public class PostgresConnectionFactory extends DriverBasedHikariConnectionFactory {
     public PostgresConnectionFactory(StorageCredentials configuration) {
@@ -65,7 +65,7 @@ public class PostgresConnectionFactory extends DriverBasedHikariConnectionFactor
     }
 
     @Override
-    public Function<String, String> getStatementProcessor() {
-        return s -> s.replace('\'', '"');
+    public StatementProcessor getStatementProcessor() {
+        return StatementProcessor.USE_DOUBLE_QUOTES;
     }
 }
