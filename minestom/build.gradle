@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    var minestom = "1_21_2-888f9896cc"
+    var minestom = "ccea53ac44"
 
     api(project(":common")) {
         // exclude default config providers as they are inaccessible from the minestom module anyway
