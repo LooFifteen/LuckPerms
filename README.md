@@ -3,7 +3,7 @@
 # LuckPerms for Minestom
 ```kts
 repositories {
-    mavenCentral()
+    maven("https://repo.hypera.dev/snapshots/")
 }
 
 dependencies {
