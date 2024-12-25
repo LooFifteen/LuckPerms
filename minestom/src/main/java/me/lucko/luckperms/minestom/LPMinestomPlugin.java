@@ -34,9 +34,11 @@ import me.lucko.luckperms.minestom.context.ContextProvider;
 import me.lucko.luckperms.minestom.context.MinestomContextManager;
 import me.lucko.luckperms.minestom.context.MinestomPlayerCalculator;
 import me.lucko.luckperms.minestom.dependencies.NoopDependencyManager;
+import me.lucko.luckperms.minestom.listeners.MinestomCommandListUpdater;
 import me.lucko.luckperms.minestom.listeners.MinestomConnectionListener;
 import me.lucko.luckperms.minestom.messaging.MinestomMessagingFactory;
 import net.luckperms.api.LuckPerms;
+import net.luckperms.api.event.user.UserDataRecalculateEvent;
 import net.luckperms.api.query.QueryOptions;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.Player;
@@ -146,10 +148,15 @@ public final class LPMinestomPlugin extends AbstractLuckPermsPlugin {
     protected void performFinalSetup() {
         PermissionRegistry permissionRegistry = this.getPermissionRegistry();
         this.permissionSuggestions.forEach(permissionRegistry::offer);
+
+        // refresh commands when the user data is recalculated
+        if (this.commandRegistry != null && this.getConfiguration().get(ConfigKeys.UPDATE_CLIENT_COMMAND_LIST)) {
+            this.getApiProvider().getEventBus().subscribe(new MinestomCommandListUpdater(this));
+        }
     }
 
     @Override
-    public LuckPermsBootstrap getBootstrap() {
+    public @NotNull LPMinestomBootstrap getBootstrap() {
         return this.bootstrap;
     }
 
