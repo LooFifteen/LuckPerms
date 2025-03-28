@@ -25,11 +25,17 @@ dependencies {
     compileOnly minestom
 
     // testing
-    testImplementation project(":common")
+    testImplementation(project(":common")) {
+        // exclude default configurate dependency as it is wildly outdated
+        exclude group: "org.spongepowered", module: "configurate-core"
+    }
     testImplementation minestom
     testImplementation "commons-net:commons-net:3.11.1" // fix vulnerability in minestom
     testImplementation "ch.qos.logback:logback-classic:1.5.18" // logger
-    testImplementation "org.spongepowered:configurate-hocon:3.7.2" // configuration using hocon
+
+    // modern configurate
+    testImplementation "org.spongepowered:configurate-core:4.2.0"
+    testImplementation "org.spongepowered:configurate-hocon:4.2.0"
 }
 
 task processSource(type: Sync) {
