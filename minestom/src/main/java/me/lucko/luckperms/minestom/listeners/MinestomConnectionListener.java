@@ -95,8 +95,6 @@ public final class MinestomConnectionListener extends AbstractConnectionListener
     private void onPlayerDisconnect(PlayerDisconnectEvent event) {
         final Player player = event.getPlayer();
         handleDisconnect(player.getUuid());
-
-        MinecraftServer.getSchedulerManager().scheduleNextTick(() -> this.plugin.getContextManager().onPlayerQuit(player));
     }
 
 }
