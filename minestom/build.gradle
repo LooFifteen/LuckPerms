@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    var minestom = "net.minestom:minestom-snapshots:2065f63f82"
+    var minestom = "net.minestom:minestom-snapshots:0366b58bfe"
 
     api(project(":common")) {
         // exclude default config providers as they are inaccessible from the minestom module anyway
