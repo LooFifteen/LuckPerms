@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    var minestom = "net.minestom:minestom-snapshots:0366b58bfe"
+    var minestom = "net.minestom:minestom-snapshots:1_21_5-0473b41b2a"
 
     api(project(":common")) {
         // exclude default config providers as they are inaccessible from the minestom module anyway
@@ -27,8 +27,8 @@ dependencies {
     // testing
     testImplementation project(":common")
     testImplementation minestom
-    testImplementation "commons-net:commons-net:3.10.0" // fix vulnerability in minestom
-    testImplementation "ch.qos.logback:logback-classic:1.4.14" // logger
+    testImplementation "commons-net:commons-net:3.11.1" // fix vulnerability in minestom
+    testImplementation "ch.qos.logback:logback-classic:1.5.18" // logger
     testImplementation "org.spongepowered:configurate-hocon:3.7.2" // configuration using hocon
 }
 
