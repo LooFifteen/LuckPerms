@@ -8,6 +8,7 @@ import me.lucko.luckperms.common.locale.TranslationManager;
 import me.lucko.luckperms.common.model.User;
 import me.lucko.luckperms.common.plugin.util.AbstractConnectionListener;
 import me.lucko.luckperms.minestom.LPMinestomPlugin;
+import me.lucko.luckperms.minestom.context.MinestomContextManager;
 import net.kyori.adventure.text.Component;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.Player;
@@ -94,9 +95,7 @@ public final class MinestomConnectionListener extends AbstractConnectionListener
 
     private void onPlayerDisconnect(PlayerDisconnectEvent event) {
         final Player player = event.getPlayer();
-        handleDisconnect(player.getUuid());
-
-        MinecraftServer.getSchedulerManager().scheduleNextTick(() -> this.plugin.getContextManager().onPlayerQuit(player));
+        this.handleDisconnect(player.getUuid());
     }
 
 }
