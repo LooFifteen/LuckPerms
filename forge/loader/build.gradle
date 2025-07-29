@@ -4,7 +4,7 @@ plugins {
     id("java-library")
 }
 
-sourceCompatibility = 17
+sourceCompatibility = 21
 targetCompatibility = 21
 
 minecraft {
@@ -15,12 +15,10 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraftVersion}-${forgeVersion}"
     implementation project(':api')
     implementation project(':common:loader-utils')
-    implementation project(':forge:forge-api')
 }
 
 build {
     dependsOn(":forge:build")
-    dependsOn(":forge:forge-api:build")
 }
 
 jar {

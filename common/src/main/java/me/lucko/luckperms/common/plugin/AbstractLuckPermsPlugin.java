@@ -132,6 +132,16 @@ public abstract class AbstractLuckPermsPlugin implements LuckPermsPlugin {
         // load some utilities early
         this.permissionRegistry = new AsyncPermissionRegistry(getBootstrap().getScheduler());
         this.verboseHandler = new VerboseHandler(getBootstrap().getScheduler());
+
+        // load configuration
+        getLogger().info("Loading configuration...");
+        ConfigurationAdapter configFileAdapter = provideConfigurationAdapter();
+        this.configuration = new LuckPermsConfiguration(this, new MultiConfigurationAdapter(this,
+                new FileSecretConfigAdapter(this),
+                new SystemPropertyConfigAdapter(this),
+                new EnvironmentVariableConfigAdapter(this),
+                configFileAdapter
+        ));
     }
 
     public final void enable() {
@@ -143,16 +153,6 @@ public abstract class AbstractLuckPermsPlugin implements LuckPermsPlugin {
 
         // setup log dispatcher instance early
         this.logDispatcher = new LogDispatcher(this);
-
-        // load configuration
-        getLogger().info("Loading configuration...");
-        ConfigurationAdapter configFileAdapter = provideConfigurationAdapter();
-        this.configuration = new LuckPermsConfiguration(this, new MultiConfigurationAdapter(this,
-                new FileSecretConfigAdapter(this),
-                new SystemPropertyConfigAdapter(this),
-                new EnvironmentVariableConfigAdapter(this),
-                configFileAdapter
-        ));
 
         // setup a bytebin instance
         this.httpClient = new OkHttpClient.Builder()
@@ -208,7 +208,11 @@ public abstract class AbstractLuckPermsPlugin implements LuckPermsPlugin {
         this.syncTaskBuffer = new SyncTask.Buffer(this);
 
         // register commands
-        registerCommands();
+        if (skipCommandRegistration()) {
+            getLogger().warn("LuckPerms commands are disabled in the configuration for both console and players. Skipping command registration.");
+        } else {
+            registerCommands();
+        }
 
         // load internal managers
         getLogger().info("Loading internal permission managers...");
@@ -386,6 +390,11 @@ public abstract class AbstractLuckPermsPlugin implements LuckPermsPlugin {
         }
 
         return configFile;
+    }
+
+    protected boolean skipCommandRegistration() {
+        return getConfiguration().get(ConfigKeys.DISABLE_LUCKPERMS_COMMANDS_CONSOLE) &&
+                getConfiguration().get(ConfigKeys.DISABLE_LUCKPERMS_COMMANDS_PLAYERS);
     }
 
     @Override

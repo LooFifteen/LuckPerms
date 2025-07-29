@@ -8,7 +8,7 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 defaultTasks 'licenseFormat', 'build'
 
 // get ci to work
-version = '5.4-SNAPSHOT'
+version = '5.5-SNAPSHOT'
 
 subprojects {
     apply plugin: 'java'
@@ -17,10 +17,10 @@ subprojects {
     apply plugin: 'org.cadixdev.licenser'
 
     group = 'dev.lu15'
-    version = '5.4-SNAPSHOT'
+    version = '5.5-SNAPSHOT'
 
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
+    sourceCompatibility = 11
+    targetCompatibility = 11
 
     tasks.withType(JavaCompile).configureEach {
         options.encoding = 'UTF-8'
@@ -56,7 +56,7 @@ subprojects {
     }
 
     project.ext.majorVersion = '5'
-    project.ext.minorVersion = '4'
+    project.ext.minorVersion = '5'
     project.ext.patchVersion = determinePatchVersion()
     project.ext.apiVersion = project.ext.majorVersion + '.' + project.ext.minorVersion
     project.ext.fullVersion = project.ext.apiVersion + '.' + project.ext.patchVersion
@@ -79,8 +79,6 @@ subprojects {
             }
         }
         mavenCentral()
-        maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots/' }
-        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
         maven { url 'https://repo.lucko.me/' }
         maven { url 'https://libraries.minecraft.net/' }
     }

@@ -150,17 +150,6 @@ public final class LuckPermsMinestom {
 
 
         /**
-         * Enables the dependency manager, which will automatically download and load LuckPerms dependencies
-         * during runtime.
-         *
-         * @param enabled if the dependency manager should be enabled
-         * @return the builder instance
-         */
-        @Contract("_ -> this")
-        @NotNull Builder dependencyManager(boolean enabled);
-
-
-        /**
          * Sets the logger to use
          *
          * @param logger the logger to use
@@ -187,7 +176,6 @@ public final class LuckPermsMinestom {
         private final Path dataDirectory;
         private @Nullable CommandRegistry commandRegistry;
         private @NotNull Function<LPMinestomPlugin, ConfigurationAdapter> configurationAdapter = EnvironmentVariableConfigAdapter::new;
-        private boolean dependencyManager = false;
         private @NotNull Logger logger = LoggerFactory.getLogger(LuckPermsMinestom.class);
 
         private BuilderImpl(@NotNull Path dataDirectory) {
@@ -241,12 +229,6 @@ public final class LuckPermsMinestom {
         }
 
         @Override
-        public @NotNull Builder dependencyManager(boolean enabled) {
-            this.dependencyManager = enabled;
-            return this;
-        }
-
-        @Override
         public @NotNull Builder logger(@NotNull Logger logger) {
             this.logger = logger;
             return this;
@@ -259,7 +241,6 @@ public final class LuckPermsMinestom {
                     this.dataDirectory,
                     this.contextProviders,
                     this.configurationAdapter,
-                    this.dependencyManager,
                     this.permissionSuggestions,
                     this.commandRegistry
             );

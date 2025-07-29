@@ -247,6 +247,26 @@ public final class ConfigKeys {
     public static final ConfigKey<Boolean> REQUIRE_SENDER_GROUP_MEMBERSHIP_TO_MODIFY = booleanKey("require-sender-group-membership-to-modify", false);
 
     /**
+     * If the plugin is in read-only mode for players
+     */
+    public static final ConfigKey<Boolean> READ_ONLY_MODE_PLAYERS = booleanKey("commands-read-only-mode.players", false);
+
+    /**
+     * If the plugin is in read-only mode for the server console
+     */
+    public static final ConfigKey<Boolean> READ_ONLY_MODE_CONSOLE = booleanKey("commands-read-only-mode.console", false);
+
+    /**
+     * If LuckPerms commands are disabled for players
+     */
+    public static final ConfigKey<Boolean> DISABLE_LUCKPERMS_COMMANDS_PLAYERS = booleanKey("disable-luckperms-commands.players", false);
+
+    /**
+     * If LuckPerms commands are disabled for the server console
+     */
+    public static final ConfigKey<Boolean> DISABLE_LUCKPERMS_COMMANDS_CONSOLE = booleanKey("disable-luckperms-commands.console", false);
+
+    /**
      * If wildcards are being applied
      */
     public static final ConfigKey<Boolean> APPLYING_WILDCARDS = notReloadable(booleanKey("apply-wildcards", true));
@@ -584,6 +604,16 @@ public final class ConfigKeys {
     public static final ConfigKey<String> MONGODB_CONNECTION_URI = notReloadable(key(c -> {
         return c.getString("data.mongodb-connection-uri", c.getString("data.mongodb_connection_URI", ""));
     }));
+
+    /**
+     * The REST storage URL
+     */
+    public static final ConfigKey<String> REST_STORAGE_URL = notReloadable(stringKey("data.rest-url", "http://localhost:8080/"));
+
+    /**
+     * The REST storage auth key
+     */
+    public static final ConfigKey<String> REST_STORAGE_AUTH_KEY = notReloadable(stringKey("data.rest-auth-key", ""));
 
     /**
      * The name of the storage method being used

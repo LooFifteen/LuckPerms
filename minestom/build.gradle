@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    var minestom = "net.minestom:minestom-snapshots:0366b58bfe"
+    var minestom = "net.minestom:minestom:2025.07.27-1.21.8"
 
     api(project(":common")) {
         // exclude default config providers as they are inaccessible from the minestom module anyway
@@ -25,11 +25,22 @@ dependencies {
     compileOnly minestom
 
     // testing
-    testImplementation project(":common")
+    testImplementation(project(":common")) {
+        // exclude default configurate dependency as it is wildly outdated
+        exclude group: "org.spongepowered", module: "configurate-core"
+    }
     testImplementation minestom
-    testImplementation "commons-net:commons-net:3.10.0" // fix vulnerability in minestom
-    testImplementation "ch.qos.logback:logback-classic:1.4.14" // logger
-    testImplementation "org.spongepowered:configurate-hocon:3.7.2" // configuration using hocon
+    testImplementation "commons-net:commons-net:3.11.1" // fix vulnerability in minestom
+    testImplementation "ch.qos.logback:logback-classic:1.5.18" // logger
+
+    // modern configurate
+    testImplementation "org.spongepowered:configurate-core:4.2.0"
+    testImplementation "org.spongepowered:configurate-hocon:4.2.0"
+
+    // testing
+    testImplementation "com.zaxxer:HikariCP:6.3.0"
+    testImplementation "redis.clients:jedis:5.2.0"
+    testImplementation "org.mariadb.jdbc:mariadb-java-client:3.5.3"
 }
 
 task processSource(type: Sync) {
@@ -37,6 +48,8 @@ task processSource(type: Sync) {
     filter(ReplaceTokens, tokens: [VERSION: project.ext.fullVersion])
     into project.getLayout().getBuildDirectory().get().dir("src")
 }
+
+license.ignoreFailures = true
 
 compileJava {
     source = processSource.outputs
