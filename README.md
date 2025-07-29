@@ -24,6 +24,9 @@ LuckPerms luckPerms = LuckPermsMinestom.builder(directory)
         .enable();
 ```
 
+## Using a remote database or message queue?
+Dependency artifacts and their required versions can be found [here](common/build.gradle#L95-L101).
+
 ## LuckPerms
 [![Build Status](https://ci.lucko.me/job/LuckPerms/badge/icon)](https://ci.lucko.me/job/LuckPerms/)
 [![javadoc](https://javadoc.io/badge2/net.luckperms/api/javadoc.svg)](https://javadoc.io/doc/net.luckperms/api)
