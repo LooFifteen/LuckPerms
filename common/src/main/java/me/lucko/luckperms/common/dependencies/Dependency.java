@@ -44,14 +44,14 @@ public enum Dependency {
     ASM(
             "org.ow2.asm",
             "asm",
-            "9.1",
-            "zaTeRV+rSP8Ly3xItGOUR9TehZp6/DCglKmG8JNr66I="
+            "9.8",
+            "h26raoPa7K1cpn65/KuwY8l7WuuM8fynqYns3hdSIFE="
     ),
     ASM_COMMONS(
             "org.ow2.asm",
             "asm-commons",
-            "9.1",
-            "r8sm3B/BLAxKma2mcJCN2C4Y38SIyvXuklRplrRwwAw="
+            "9.8",
+            "MwGhwctMWfzFKSZI2sHXxa7UwPBn376IhzuM3+d0BPQ="
     ),
     JAR_RELOCATOR(
             "me.lucko",
@@ -62,28 +62,28 @@ public enum Dependency {
     ADVENTURE(
             "me{}lucko",
             "adventure-api",
-            "4.13.0",
-            "gcmYlY1KDrzbnE9nB8rA44oBZKPSMvv9kNRefoEuud0=",
+            "4.21.1",
+            "kQJlZ0gUxdTRRkskT43qiy2kpt9s654LvB0nqoCP6YE=",
             Relocation.of("adventure", "net{}kyori{}adventure")
     ),
     ADVENTURE_PLATFORM(
             "me{}lucko",
             "adventure-platform-api",
-            "4.13.0",
+            "4.21.1",
             "Kk8IkEMVa9ITBfC3yocpcXQiZ9CwN9VxeWjKUD8I0n0=",
             Relocation.of("adventure", "net{}kyori{}adventure")
     ),
     ADVENTURE_PLATFORM_BUKKIT(
             "me{}lucko",
             "adventure-platform-bukkit",
-            "4.13.3",
-            "ZXw7pf+a6tjGdB2WO1rB/KQ+ETLAH8kQFSu3El7jopY=",
+            "4.21.1",
+            "NffwBnfT/Mc6VpsmTcaXPvckv9T4vPJD83adt0C8vao=",
             Relocation.of("adventure", "net{}kyori{}adventure")
     ),
     ADVENTURE_PLATFORM_BUNGEECORD(
             "me{}lucko",
             "adventure-platform-bungeecord",
-            "4.13.3",
+            "4.21.1",
             "7hnndD6dO6LZoRbtOBdn6OFK0y/T2PqNLHxCg6zaQlo=",
             Relocation.of("adventure", "net{}kyori{}adventure")
     ),
@@ -97,15 +97,15 @@ public enum Dependency {
     CAFFEINE(
             "com{}github{}ben-manes{}caffeine",
             "caffeine",
-            "2.9.0",
-            "VFMotEO3XLbTHfRKfL3m36GlN72E/dzRFH9B5BJiX2o=",
+            "3.2.0",
+            "7EEd/fDAPyUhhkjOiYYWMLcWgOWFippyeOusjlXKs9c=",
             Relocation.of("caffeine", "com{}github{}benmanes{}caffeine")
     ),
     OKIO(
             "com{}squareup{}" + RelocationHelper.OKIO_STRING,
             RelocationHelper.OKIO_STRING,
-            "1.17.5",
-            "Gaf/SNhtPPRJf38lD78pX0MME6Uo3Vt7ID+CGAK4hq0=",
+            "1.17.6",
+            "joiwVVI8yAYT37hE1Zh0DhCtpi9L2YMEzdFAxYVMw7Y=",
             Relocation.of(RelocationHelper.OKIO_STRING, RelocationHelper.OKIO_STRING)
     ),
     OKHTTP(
@@ -119,8 +119,8 @@ public enum Dependency {
     BYTEBUDDY(
             "net{}bytebuddy",
             "byte-buddy",
-            "1.10.22",
-            "+TGtxDkxd6+lJExHJXqDlV4n/gR8QJN4xu2gkPsHSoQ=",
+            "1.15.11",
+            "+giZiq4ee9roO94HEsUOhETXHA4MGWuyJHrejUrQ65A=",
             Relocation.of("bytebuddy", "net{}bytebuddy")
     ),
     COMMODORE(
@@ -140,22 +140,22 @@ public enum Dependency {
     MARIADB_DRIVER(
             "org{}mariadb{}jdbc",
             "mariadb-java-client",
-            "3.1.3",
-            "ESl+5lYkJsScgTh8hgFTy8ExxMPQQkktT20tl6s6HKU=",
+            "3.5.2",
+            "8vPDwaO9rKad0dThzYrtB1JC/HKuQUY924LjZ7OI9q0=",
             Relocation.of("mariadb", "org{}mariadb{}jdbc")
     ),
     MYSQL_DRIVER(
-            "mysql",
-            "mysql-connector-java",
-            "8.0.23",
-            "/31bQCr9OcEnh0cVBaM6MEEDsjjsG3pE6JNtMynadTU=",
+            "com{}mysql",
+            "mysql-connector-j",
+            "9.3.0",
+            "bI5mkrUhN22JvFYYwWzer4xhhUMp9PolZ37Qh3bFu3Y=",
             Relocation.of("mysql", "com{}mysql")
     ),
     POSTGRESQL_DRIVER(
             "org{}postgresql",
             "postgresql",
-            "42.6.0",
-            "uBfGekDJQkn9WdTmhuMyftDT0/rkJrINoPHnVlLPxGE=",
+            "42.7.6",
+            "8qHMA1LdXlxvZdut/ye+4Awy5DLGrQMNB0R/ilmDxCo=",
             Relocation.of("postgresql", "org{}postgresql")
     ),
     H2_DRIVER_LEGACY(
@@ -179,124 +179,124 @@ public enum Dependency {
     SQLITE_DRIVER(
             "org.xerial",
             "sqlite-jdbc",
-            "3.28.0",
-            "k3hOVtv1RiXgbJks+D9w6cG93Vxq0dPwEwjIex2WG2A="
+            "3.49.1.0",
+            "XIYJ0so0HeuMb3F3iXS1ukmVx9MtfHyJ2TkqPnLDkpE="
             // we don't apply relocations to sqlite - it gets loaded via
             // an isolated classloader
     ),
     HIKARI(
             "com{}zaxxer",
             "HikariCP",
-            "4.0.3",
-            "fAJK7/HBBjV210RTUT+d5kR9jmJNF/jifzCi6XaIxsk=",
+            "6.3.0",
+            "B8Y0QFmvMKE1FEIJx8i9ZmuIIxJEIuyFmGTSCdSrfKE=",
             Relocation.of("hikari", "com{}zaxxer{}hikari")
     ),
     SLF4J_SIMPLE(
             "org.slf4j",
             "slf4j-simple",
-            "1.7.30",
-            "i5J5y/9rn4hZTvrjzwIDm2mVAw7sAj7UOSh0jEFnD+4="
+            "1.7.36",
+            "Lzm+2UPWJN+o9BAtBXEoOhCHC2qjbxl6ilBvFHAQwQ8="
     ),
     SLF4J_API(
             "org.slf4j",
             "slf4j-api",
-            "1.7.30",
-            "zboHlk0btAoHYUhcax6ML4/Z6x0ZxTkorA1/lRAQXFc="
+            "1.7.36",
+            "0+9XXj5JeWeNwBvx3M5RAhSTtNEft/G+itmCh3wWocA="
     ),
     MONGODB_DRIVER_CORE(
             "org.mongodb",
             "mongodb-driver-core",
-            "4.5.0",
-            "awqoW0ImUcrCTA2d1rDCjDLEjLMCrOjKWIcC7E+zLGA=",
+            "5.5.0",
+            "69tQuKep52lbYvX2YM+J6GGlYkNySXkMBDuk6BqtsJE=",
             Relocation.of("mongodb", "com{}mongodb"),
             Relocation.of("bson", "org{}bson")
     ),
     MONGODB_DRIVER_LEGACY(
             "org.mongodb",
             "mongodb-driver-legacy",
-            "4.5.0",
-            "77KZGIr3KZmzBpN69rGOLXmnlJIBCXRl/U4gEIdlFhY=",
+            "5.5.0",
+            "yo/0wEdLw0/Md1xqgEd/iqiKV+t0AqAcdnS1TNAaygM=",
             Relocation.of("mongodb", "com{}mongodb"),
             Relocation.of("bson", "org{}bson")
     ),
     MONGODB_DRIVER_SYNC(
             "org.mongodb",
             "mongodb-driver-sync",
-            "4.5.0",
-            "q9XDSGJjlo/Ek6jHoCbqWnaK/dghB8y9aDM0hCLiSvk=",
+            "5.5.0",
+            "nFECiREXgMc5Ikamvmnzaxumhz75NKG+ajIhAW/ioPI=",
             Relocation.of("mongodb", "com{}mongodb"),
             Relocation.of("bson", "org{}bson")
     ),
     MONGODB_DRIVER_BSON(
             "org.mongodb",
             "bson",
-            "4.5.0",
-            "6CFyEzxbdeiBEXdDBmcgqWs5dvicgFkBLU3MlQUIqRA=",
+            "5.5.0",
+            "hQx5w0v/DuQvASpnGXkLuWxkhXhewDTTAmrifPWbBJQ=",
             Relocation.of("mongodb", "com{}mongodb"),
             Relocation.of("bson", "org{}bson")
     ),
     JEDIS(
             "redis.clients",
             "jedis",
-            "4.4.3",
-            "wwwoCDPCywcfoNwpvwP95kXYusXSTtXhuVrB31sxE0k=",
+            "5.2.0",
+            "3U+9osED8xmrSVrbK8GQYTmEB0bP1MZrJ3ENGvmDgtQ=",
             Relocation.of("jedis", "redis{}clients{}jedis"),
             Relocation.of("commonspool2", "org{}apache{}commons{}pool2")
     ),
     NATS(
         "io.nats",
         "jnats",
-        "2.16.4",
-        "/WZgFi9iJToRGIiGoShlwE5aHwstOuNGZyr4UaBRilM=",
+        "2.21.1",
+        "QHUHUCnCCy/oRSwoqhy0245SrvD4lwCfc+ZVmemHXLg=",
         Relocation.of("nats", "io{}nats{}client")
     ),
     RABBITMQ(
             "com{}rabbitmq",
             "amqp-client",
-            "5.12.0",
-            "CxliwVWAnPKi5BwxCu1S1SGzx5fbhTk5JCKdBS27P2c=",
+            "5.25.0",
+            "WqlvAFCEE56xB32UtV3GQo7KfafizFPqtEp3M5H4qo8=",
             Relocation.of("rabbitmq", "com{}rabbitmq")
     ),
     COMMONS_POOL_2(
             "org.apache.commons",
             "commons-pool2",
-            "2.9.0",
-            "vJGbQmv6+zHsxF1mUqnxN0YkZdhJ+zhz142Qw/jTWwE=",
+            "2.12.1",
+            "UnPIvIwNyiIRF1wNJ++9cijvrplomqwAGo4e+Ohy6e8=",
             Relocation.of("commonspool2", "org{}apache{}commons{}pool2")
     ),
     CONFIGURATE_CORE(
             "org{}spongepowered",
             "configurate-core",
-            "3.7.2",
-            "XF2LzWLkSV0wyQRDt33I+gDlf3t2WzxH1h8JCZZgPp4=",
+            "3.7.3",
+            "06R3WDViB84WtSkHTudV8TSPxF1eQyCyfab8L7Pvo2M=",
             Relocation.of("configurate", "ninja{}leaping{}configurate")
     ),
     CONFIGURATE_GSON(
             "org{}spongepowered",
             "configurate-gson",
-            "3.7.2",
-            "9S/mp3Ig9De7NNd6+2kX+L4R90bHnAosSNVbFjrl7sM=",
+            "3.7.3",
+            "QM+bGrgrzfwT9nvIvTHtR2TUEpun+RwlXIO/a9BU0Mc=",
             Relocation.of("configurate", "ninja{}leaping{}configurate")
     ),
     CONFIGURATE_YAML(
             "org{}spongepowered",
             "configurate-yaml",
-            "3.7.2",
-            "OBfYn4nSMGZfVf2DoZhZq+G9TF1mODX/C5OOz/mkPmc=",
+            "3.7.3",
+            "a04vRkLhigIqiG/gdVvK7c1YiBQJ7k1q/kBNsS9OVDs=",
             Relocation.of("configurate", "ninja{}leaping{}configurate")
     ),
     SNAKEYAML(
             "org.yaml",
             "snakeyaml",
-            "1.28",
-            "NURqFCFDXUXkxqwN47U3hSfVzCRGwHGD4kRHcwzh//o=",
+            "1.33",
+            "Ef9Fl4jwoteB9WpKhtfmkgLOus0Cc9UmnErp8C8/2PA=",
             Relocation.of("yaml", "org{}yaml{}snakeyaml")
     ),
     CONFIGURATE_HOCON(
             "org{}spongepowered",
             "configurate-hocon",
-            "3.7.2",
-            "GOORZlK1FKLzdIm7dKyyXtBdvk7Z89HARAd2H6NiWSY=",
+            "3.7.3",
+            "e/UDpbIrWdJNB6yMFXtrOnnNn3nptmSv/J8n46uQPNs=",
             Relocation.of("configurate", "ninja{}leaping{}configurate"),
             Relocation.of("hocon", "com{}typesafe{}config")
     ),
