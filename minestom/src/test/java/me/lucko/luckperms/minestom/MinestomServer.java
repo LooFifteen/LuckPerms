@@ -42,7 +42,6 @@ public final class MinestomServer {
                         new EnvironmentVariableConfigAdapter(plugin),
                         new HoconConfigurationAdapter(plugin)
                 )).permissionSuggestions("test.permission", "test.other")
-                .dependencyManager(true)
                 .enable();
 
         // set custom player provider (optional)
