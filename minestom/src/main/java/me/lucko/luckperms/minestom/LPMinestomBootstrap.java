@@ -8,7 +8,6 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
 import java.util.function.Function;
-import me.lucko.luckperms.common.command.CommandManager;
 import me.lucko.luckperms.common.config.generic.adapter.ConfigurationAdapter;
 import me.lucko.luckperms.common.plugin.bootstrap.LuckPermsBootstrap;
 import me.lucko.luckperms.common.plugin.classpath.ClassPathAppender;
@@ -29,7 +28,6 @@ public final class LPMinestomBootstrap implements LuckPermsBootstrap {
     private final Path dataDirectory;
     private final PluginLogger logger;
     private final SchedulerAdapter schedulerAdapter;
-    private final ClassPathAppender classPathAppender;
     private final LPMinestomPlugin plugin;
 
     private final CountDownLatch loadLatch = new CountDownLatch(1);
@@ -42,15 +40,13 @@ public final class LPMinestomBootstrap implements LuckPermsBootstrap {
             @NotNull Path dataDirectory,
             @NotNull Set<ContextProvider> contextProviders,
             @NotNull Function<LPMinestomPlugin, ConfigurationAdapter> configurationAdapter,
-            boolean dependencyManager,
             @NotNull Set<String> permissionSuggestions,
             @Nullable CommandRegistry commandRegistry
     ) {
         this.logger = new Slf4jPluginLogger(logger);
         this.dataDirectory = dataDirectory;
         this.schedulerAdapter = new MinestomSchedulerAdapter(this);
-        this.classPathAppender = new NoopClassPathAppender();
-        this.plugin = new LPMinestomPlugin(this, contextProviders, configurationAdapter, dependencyManager, permissionSuggestions, commandRegistry);
+        this.plugin = new LPMinestomPlugin(this, contextProviders, configurationAdapter, permissionSuggestions, commandRegistry);
     }
 
     public void onEnable() {
@@ -87,7 +83,7 @@ public final class LPMinestomBootstrap implements LuckPermsBootstrap {
 
     @Override
     public ClassPathAppender getClassPathAppender() {
-        return this.classPathAppender;
+        return NoopClassPathAppender.INSTANCE;
     }
 
     @Override
