@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    var minestom = "net.minestom:minestom-snapshots:1_21_5-0473b41b2a"
+    var minestom = "net.minestom:minestom:2025.07.27-1.21.8"
 
     api(project(":common")) {
         // exclude default config providers as they are inaccessible from the minestom module anyway
@@ -36,6 +36,11 @@ dependencies {
     // modern configurate
     testImplementation "org.spongepowered:configurate-core:4.2.0"
     testImplementation "org.spongepowered:configurate-hocon:4.2.0"
+
+    // testing
+    testImplementation "com.zaxxer:HikariCP:7.0.0"
+    testImplementation "redis.clients:jedis:4.4.3"
+    testImplementation "org.mariadb.jdbc:mariadb-java-client:3.5.3"
 }
 
 task processSource(type: Sync) {
