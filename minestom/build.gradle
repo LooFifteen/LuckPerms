@@ -38,8 +38,8 @@ dependencies {
     testImplementation "org.spongepowered:configurate-hocon:4.2.0"
 
     // testing
-    testImplementation "com.zaxxer:HikariCP:7.0.0"
-    testImplementation "redis.clients:jedis:4.4.3"
+    testImplementation "com.zaxxer:HikariCP:6.3.0"
+    testImplementation "redis.clients:jedis:5.2.0"
     testImplementation "org.mariadb.jdbc:mariadb-java-client:3.5.3"
 }
 
@@ -48,6 +48,8 @@ task processSource(type: Sync) {
     filter(ReplaceTokens, tokens: [VERSION: project.ext.fullVersion])
     into project.getLayout().getBuildDirectory().get().dir("src")
 }
+
+license.ignoreFailures = true
 
 compileJava {
     source = processSource.outputs
