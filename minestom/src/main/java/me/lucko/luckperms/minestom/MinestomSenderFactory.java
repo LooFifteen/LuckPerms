@@ -1,6 +1,8 @@
 package me.lucko.luckperms.minestom;
 
 import java.util.UUID;
+import java.util.function.BiFunction;
+
 import me.lucko.luckperms.common.locale.TranslationManager;
 import me.lucko.luckperms.common.sender.Sender;
 import me.lucko.luckperms.common.sender.SenderFactory;
@@ -14,10 +16,12 @@ import net.minestom.server.entity.Player;
 public final class MinestomSenderFactory extends SenderFactory<LPMinestomPlugin, CommandSender> {
 
     private final LPMinestomPlugin plugin;
+    private final BiFunction<CommandSender, String, Tristate> externalPermissionHandler;
 
-    public MinestomSenderFactory(LPMinestomPlugin plugin) {
+    public MinestomSenderFactory(LPMinestomPlugin plugin, BiFunction<CommandSender, String, Tristate> externalPermissionHandler) {
         super(plugin);
         this.plugin = plugin;
+        this.externalPermissionHandler = externalPermissionHandler;
     }
 
     @Override
@@ -37,15 +41,21 @@ public final class MinestomSenderFactory extends SenderFactory<LPMinestomPlugin,
 
     @Override
     protected Tristate getPermissionValue(CommandSender sender, String node) {
-        return sender instanceof Player player ? this.plugin.getApiProvider().getPlayerAdapter(Player.class).getPermissionData(player)
-                .checkPermission(node) : Tristate.TRUE;
+        if(sender instanceof Player player) {
+            Tristate result = this.plugin.getApiProvider()
+                    .getPlayerAdapter(Player.class)
+                    .getPermissionData(player)
+                    .checkPermission(node);
+            if(result != Tristate.UNDEFINED) {
+                return result;
+            }
+        }
+        return this.externalPermissionHandler.apply(sender, node);
     }
 
     @Override
     protected boolean hasPermission(CommandSender sender, String node) {
-        return !(sender instanceof Player player) || this.plugin.getApiProvider().getPlayerAdapter(Player.class).getPermissionData(player)
-                .checkPermission(node)
-                .asBoolean();
+        return this.getPermissionValue(sender, node).asBoolean();
     }
 
     @Override

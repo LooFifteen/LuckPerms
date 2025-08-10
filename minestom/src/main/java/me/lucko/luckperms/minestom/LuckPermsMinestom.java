@@ -4,6 +4,7 @@ import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import me.lucko.luckperms.common.config.generic.adapter.ConfigurationAdapter;
@@ -11,6 +12,8 @@ import me.lucko.luckperms.common.config.generic.adapter.EnvironmentVariableConfi
 import me.lucko.luckperms.minestom.context.ContextProvider;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
+import net.luckperms.api.util.Tristate;
+import net.minestom.server.command.CommandSender;
 import net.minestom.server.command.builder.Command;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -158,6 +161,16 @@ public final class LuckPermsMinestom {
         @Contract("_ -> this")
         @NotNull Builder logger(@NotNull Logger logger);
 
+        /**
+         * Sets an external permission handler used for permission checking in
+         * LuckPerms commands (as a fallback when no matching LuckPerms permission is set)
+         *
+         * @param externalPermissionHandler the permission handler
+         * @return the builder instance
+         */
+        @Contract("_ -> this")
+        @NotNull Builder externalPermissionHandler(@NotNull BiFunction<CommandSender, String, Tristate> externalPermissionHandler);
+
 
         /**
          * Enables LuckPerms
@@ -177,6 +190,7 @@ public final class LuckPermsMinestom {
         private @Nullable CommandRegistry commandRegistry;
         private @NotNull Function<LPMinestomPlugin, ConfigurationAdapter> configurationAdapter = EnvironmentVariableConfigAdapter::new;
         private @NotNull Logger logger = LoggerFactory.getLogger(LuckPermsMinestom.class);
+        private @NotNull BiFunction<CommandSender, String, Tristate> externalPermissionHandler = (sender, node) -> Tristate.UNDEFINED;
 
         private BuilderImpl(@NotNull Path dataDirectory) {
             this.dataDirectory = dataDirectory;
@@ -235,6 +249,12 @@ public final class LuckPermsMinestom {
         }
 
         @Override
+        public @NotNull Builder externalPermissionHandler(@NotNull BiFunction<CommandSender, String, Tristate> externalPermissionHandler) {
+            this.externalPermissionHandler = externalPermissionHandler;
+            return this;
+        }
+
+        @Override
         public @NotNull LuckPerms enable() {
             bootstrap = new LPMinestomBootstrap(
                     this.logger,
@@ -242,7 +262,8 @@ public final class LuckPermsMinestom {
                     this.contextProviders,
                     this.configurationAdapter,
                     this.permissionSuggestions,
-                    this.commandRegistry
+                    this.commandRegistry,
+                    this.externalPermissionHandler
             );
             bootstrap.onEnable();
             return LuckPermsProvider.get();

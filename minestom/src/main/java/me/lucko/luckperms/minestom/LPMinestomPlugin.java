@@ -4,6 +4,7 @@ import java.nio.file.Path;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.stream.Stream;
 import me.lucko.luckperms.common.api.LuckPermsApiProvider;
@@ -37,7 +38,9 @@ import me.lucko.luckperms.minestom.listeners.MinestomConnectionListener;
 import me.lucko.luckperms.minestom.messaging.MinestomMessagingFactory;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.query.QueryOptions;
+import net.luckperms.api.util.Tristate;
 import net.minestom.server.MinecraftServer;
+import net.minestom.server.command.CommandSender;
 import net.minestom.server.entity.Player;
 import net.minestom.server.event.Event;
 import net.minestom.server.event.EventNode;
@@ -53,6 +56,7 @@ public final class LPMinestomPlugin extends AbstractLuckPermsPlugin {
     private final @NotNull Set<String> permissionSuggestions;
     private final @NotNull ConfigurationAdapter configurationAdapter;
     private final @Nullable CommandRegistry commandRegistry;
+    private final @NotNull BiFunction<CommandSender, String, Tristate> externalPermissionHandler;
 
     private MinestomSenderFactory senderFactory;
     private MinestomContextManager contextManager;
@@ -67,18 +71,20 @@ public final class LPMinestomPlugin extends AbstractLuckPermsPlugin {
             @NotNull Set<ContextProvider> contextProviders,
             @NotNull Function<LPMinestomPlugin, ConfigurationAdapter> configurationAdapter,
             @NotNull Set<String> permissionSuggestions,
-            @Nullable CommandRegistry commandRegistry
-    ) {
+            @Nullable CommandRegistry commandRegistry,
+            @NotNull BiFunction<CommandSender, String, Tristate> externalPermissionHandler
+            ) {
         this.bootstrap = bootstrap;
         this.contextProviders = contextProviders;
         this.permissionSuggestions = permissionSuggestions;
         this.configurationAdapter = configurationAdapter.apply(this);
         this.commandRegistry = commandRegistry;
+        this.externalPermissionHandler = externalPermissionHandler;
     }
 
     @Override
     protected void setupSenderFactory() {
-        this.senderFactory = new MinestomSenderFactory(this);
+        this.senderFactory = new MinestomSenderFactory(this, this.externalPermissionHandler);
     }
 
     @Override

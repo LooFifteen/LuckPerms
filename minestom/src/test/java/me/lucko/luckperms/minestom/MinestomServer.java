@@ -10,6 +10,7 @@ import net.luckperms.api.LuckPerms;
 import net.luckperms.api.context.DefaultContextKeys;
 import net.luckperms.api.context.ImmutableContextSet;
 import net.luckperms.api.node.Node;
+import net.luckperms.api.util.Tristate;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.command.CommandManager;
 import net.minestom.server.command.builder.Command;
@@ -41,7 +42,9 @@ public final class MinestomServer {
                 .configurationAdapter(plugin -> new MultiConfigurationAdapter(plugin,
                         new EnvironmentVariableConfigAdapter(plugin),
                         new HoconConfigurationAdapter(plugin)
-                )).permissionSuggestions("test.permission", "test.other")
+                ))
+                .permissionSuggestions("test.permission", "test.other")
+                .externalPermissionHandler((sender, permission) -> Tristate.of(permission.equals("luckperms.editor") || permission.equals("luckperms.applyedits")))
                 .enable();
 
         // set custom player provider (optional)

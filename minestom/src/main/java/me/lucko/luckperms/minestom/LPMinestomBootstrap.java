@@ -7,6 +7,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import me.lucko.luckperms.common.config.generic.adapter.ConfigurationAdapter;
 import me.lucko.luckperms.common.plugin.bootstrap.LuckPermsBootstrap;
@@ -17,7 +18,9 @@ import me.lucko.luckperms.common.plugin.scheduler.SchedulerAdapter;
 import me.lucko.luckperms.minestom.context.ContextProvider;
 import me.lucko.luckperms.minestom.dependencies.NoopClassPathAppender;
 import net.luckperms.api.platform.Platform;
+import net.luckperms.api.util.Tristate;
 import net.minestom.server.MinecraftServer;
+import net.minestom.server.command.CommandSender;
 import net.minestom.server.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -41,12 +44,13 @@ public final class LPMinestomBootstrap implements LuckPermsBootstrap {
             @NotNull Set<ContextProvider> contextProviders,
             @NotNull Function<LPMinestomPlugin, ConfigurationAdapter> configurationAdapter,
             @NotNull Set<String> permissionSuggestions,
-            @Nullable CommandRegistry commandRegistry
-    ) {
+            @Nullable CommandRegistry commandRegistry,
+            @NotNull BiFunction<CommandSender, String, Tristate> externalPermissionHandler
+            ) {
         this.logger = new Slf4jPluginLogger(logger);
         this.dataDirectory = dataDirectory;
         this.schedulerAdapter = new MinestomSchedulerAdapter(this);
-        this.plugin = new LPMinestomPlugin(this, contextProviders, configurationAdapter, permissionSuggestions, commandRegistry);
+        this.plugin = new LPMinestomPlugin(this, contextProviders, configurationAdapter, permissionSuggestions, commandRegistry, externalPermissionHandler);
     }
 
     public void onEnable() {
