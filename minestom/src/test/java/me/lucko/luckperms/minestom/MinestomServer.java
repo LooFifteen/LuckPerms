@@ -10,6 +10,7 @@ import net.luckperms.api.LuckPerms;
 import net.luckperms.api.context.DefaultContextKeys;
 import net.luckperms.api.context.ImmutableContextSet;
 import net.luckperms.api.node.Node;
+import net.minestom.server.Auth;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.command.CommandManager;
 import net.minestom.server.command.builder.Command;
@@ -21,7 +22,6 @@ import net.minestom.server.event.EventNode;
 import net.minestom.server.event.player.AsyncPlayerConfigurationEvent;
 import net.minestom.server.event.player.PlayerChatEvent;
 import net.minestom.server.event.player.PlayerSpawnEvent;
-import net.minestom.server.extras.MojangAuth;
 import net.minestom.server.extras.lan.OpenToLAN;
 import net.minestom.server.instance.InstanceContainer;
 import net.minestom.server.instance.block.Block;
@@ -30,7 +30,7 @@ import net.minestom.server.network.ConnectionManager;
 public final class MinestomServer {
 
     public static void main(String[] args) {
-        MinecraftServer server = MinecraftServer.init();
+        MinecraftServer server = MinecraftServer.init(new Auth.Online());
         MinecraftServer.setBrandName("LU15");
 
         // initialize LuckPerms
@@ -107,7 +107,6 @@ public final class MinestomServer {
         });
 
         OpenToLAN.open();
-        MojangAuth.init();
 
         server.start("0.0.0.0", 25565);
     }
