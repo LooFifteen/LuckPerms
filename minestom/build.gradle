@@ -5,15 +5,15 @@ plugins {
 }
 
 // minestom requires java 21+
-sourceCompatibility = 21
-targetCompatibility = 21
+//sourceCompatibility = 25
+//targetCompatibility = 25
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    var minestom = "net.minestom:minestom:2025.07.27-1.21.8"
+    var minestom = "net.minestom:minestom:2025.12.20c-1.21.11"
 
     api(project(":common")) {
         // exclude default config providers as they are inaccessible from the minestom module anyway
@@ -41,6 +41,7 @@ dependencies {
     testImplementation "com.zaxxer:HikariCP:6.3.0"
     testImplementation "redis.clients:jedis:5.2.0"
     testImplementation "org.mariadb.jdbc:mariadb-java-client:3.5.3"
+    testImplementation 'com.h2database:h2:2.1.214'
 }
 
 task processSource(type: Sync) {
@@ -49,7 +50,7 @@ task processSource(type: Sync) {
     into project.getLayout().getBuildDirectory().get().dir("src")
 }
 
-license.ignoreFailures = true
+//license.ignoreFailures = true
 
 compileJava {
     source = processSource.outputs
