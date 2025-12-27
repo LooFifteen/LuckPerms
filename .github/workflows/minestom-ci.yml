@@ -25,10 +25,10 @@ jobs:
       - name: "Validate Gradle wrapper"
         uses: gradle/actions/wrapper-validation@d9c87d481d55275bb5441eef3fe0e46805f9ef70 # v3.5.0
 
-      - name: "Setup JDK 21"
+      - name: "Setup JDK 25"
         uses: actions/setup-java@6a0805fcefea3d4657a47ac4c165951e33482018 # v4.2.2
         with:
-          java-version: "21"
+          java-version: "25"
           distribution: "temurin"
 
       - name: "Setup Gradle"
@@ -68,10 +68,10 @@ jobs:
           fetch-depth: 0
           submodules: true
 
-      - name: "Setup JDK 21"
+      - name: "Setup JDK 25"
         uses: actions/setup-java@6a0805fcefea3d4657a47ac4c165951e33482018 # v4.2.2
         with:
-          java-version: "21"
+          java-version: "25"
           distribution: "temurin"
 
       - name: "Validate Gradle wrapper"
