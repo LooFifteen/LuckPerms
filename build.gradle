@@ -8,7 +8,7 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 defaultTasks 'licenseFormat', 'build'
 
 // get ci to work
-version = '5.5-SNAPSHOT'
+version = '5.5+26.1.1-SNAPSHOT'
 
 subprojects {
     apply plugin: 'java'
@@ -17,7 +17,7 @@ subprojects {
     apply plugin: 'dev.yumi.gradle.licenser'
 
     group = 'dev.lu15'
-    version = '5.5-SNAPSHOT'
+    version = '5.5+26.1.1-SNAPSHOT'
 
 //    sourceCompatibility = 11
 //    targetCompatibility = 11

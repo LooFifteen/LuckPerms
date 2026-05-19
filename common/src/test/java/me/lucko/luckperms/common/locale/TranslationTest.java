@@ -25,7 +25,6 @@
 
 package me.lucko.luckperms.common.locale;
 
-import net.kyori.adventure.util.UTF8ResourceBundleControl;
 import org.junit.jupiter.api.Test;
 
 import java.util.Locale;
@@ -38,7 +37,7 @@ public class TranslationTest {
 
     @Test
     public void testBundleParse() {
-        ResourceBundle bundle = ResourceBundle.getBundle("luckperms", Locale.ENGLISH, UTF8ResourceBundleControl.get());
+        ResourceBundle bundle = ResourceBundle.getBundle("luckperms", Locale.ENGLISH);
         Set<String> keys = bundle.keySet();
         assertTrue(keys.size() > 100);
 

@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    var minestom = "net.minestom:minestom:2025.12.20c-1.21.11"
+    var minestom = "net.minestom:minestom:2026.05.17b-26.1.1"
 
     api(project(":common")) {
         // exclude default config providers as they are inaccessible from the minestom module anyway
@@ -22,6 +22,7 @@ dependencies {
         exclude group: "org.spongepowered", module: "configurate-hocon"
         exclude group: "me.lucko.configurate", module: "configurate-toml"
     }
+    api("org.slf4j:slf4j-api:2.0.17")
     compileOnly minestom
 
     // testing
