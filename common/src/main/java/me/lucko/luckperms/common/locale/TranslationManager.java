@@ -31,16 +31,18 @@ import me.lucko.luckperms.common.util.MoreFiles;
 import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.translation.GlobalTranslator;
-import net.kyori.adventure.translation.TranslationRegistry;
+import net.kyori.adventure.translation.TranslationStore;
 import net.kyori.adventure.translation.Translator;
-import net.kyori.adventure.util.UTF8ResourceBundleControl;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.text.MessageFormat;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -59,7 +61,7 @@ public class TranslationManager {
 
     private final LuckPermsPlugin plugin;
     private final Set<Locale> installed = ConcurrentHashMap.newKeySet();
-    private TranslationRegistry registry;
+    private TranslationStore.StringBased<MessageFormat> registry;
 
     private final Path translationsDirectory;
     private final Path repositoryTranslationsDirectory;
@@ -103,7 +105,7 @@ public class TranslationManager {
         }
 
         // create a translation registry
-        this.registry = TranslationRegistry.create(Key.key("luckperms", "main"));
+        this.registry = TranslationStore.messageFormat(Key.key("luckperms", "main"));
         this.registry.defaultLocale(DEFAULT_LOCALE);
 
         // load custom translations first, then the base (built-in) translations after.
@@ -119,12 +121,38 @@ public class TranslationManager {
      * Loads the base (English) translations from the jar file.
      */
     private void loadFromResourceBundle() {
-        ResourceBundle bundle = ResourceBundle.getBundle("luckperms", DEFAULT_LOCALE, UTF8ResourceBundleControl.get());
+        ResourceBundle bundle;
+        try {
+            bundle = loadResourceBundle("luckperms_" + DEFAULT_LOCALE.getLanguage() + ".properties");
+        } catch (IOException e) {
+            this.plugin.getLogger().warn("Error loading default locale file", e);
+            return;
+        }
+
         try {
             this.registry.registerAll(DEFAULT_LOCALE, bundle, false);
         } catch (IllegalArgumentException e) {
             if (!isAdventureDuplicatesException(e)) {
                 this.plugin.getLogger().warn("Error loading default locale file", e);
+            }
+        }
+    }
+
+    /**
+     * Reads a bundled .properties file as UTF-8.
+     *
+     * ResourceBundle.getBundle reads property bundles in the platform default
+     * encoding before Java 9, which is why adventure used to supply a Control to
+     * force UTF-8. Reading it through an explicit UTF-8 reader is equivalent and
+     * does not depend on either adventure or the JVM's default.
+     */
+    private static ResourceBundle loadResourceBundle(String resource) throws IOException {
+        try (InputStream is = TranslationManager.class.getClassLoader().getResourceAsStream(resource)) {
+            if (is == null) {
+                throw new IOException("Resource not found: " + resource);
+            }
+            try (InputStreamReader reader = new InputStreamReader(is, StandardCharsets.UTF_8)) {
+                return new PropertyResourceBundle(reader);
             }
         }
     }

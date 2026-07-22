@@ -162,7 +162,7 @@ public interface Message {
             // "&3Use &a/{} help &3to view available commands."
             .key("luckperms.commandsystem.available-commands")
             .color(DARK_AQUA)
-            .args(text('/' + label + " help", GREEN))
+            .arguments(text('/' + label + " help", GREEN))
             .append(FULL_STOP)
     );
 
@@ -218,7 +218,7 @@ public interface Message {
             prefixed(translatable()
                     .key("luckperms.first-time.wiki-prompt")
                     .color(DARK_AQUA)
-                    .args(text()
+                    .arguments(text()
                             .content("https://luckperms.net/wiki/Usage")
                             .color(GRAY)
                             .clickEvent(ClickEvent.openUrl("https://luckperms.net/wiki/Usage"))
@@ -380,7 +380,7 @@ public interface Message {
                 builder.append(translatable()
                         .key("luckperms.command.generic.permission.check.info.directly")
                         .color(GRAY)
-                        .args(
+                        .arguments(
                                 text().color(AQUA).content(origin),
                                 text(causeNode.getKey(), AQUA),
                                 formatBoolean(causeNode.getValue()),
@@ -402,7 +402,7 @@ public interface Message {
                 builder.append(translatable()
                         .key("luckperms.command.generic.permission.check.info.directly")
                         .color(GRAY)
-                        .args(
+                        .arguments(
                                 text().color(AQUA).content(origin),
                                 text(causeNode.getMetaKey(), AQUA),
                                 formatColoredValue(causeNode.getMetaValue()),
@@ -443,7 +443,7 @@ public interface Message {
             .content("... ")
             .append(translatable()
                     .key("luckperms.logs.verbose.hover.overflow")
-                    .args(text(overflow))
+                    .arguments(text(overflow))
             )
             .build();
 
@@ -547,7 +547,7 @@ public interface Message {
             // "&aUser &b{}&a is not online."
             .key("luckperms.command.misc.loading.error.user-not-online")
             .color(GREEN)
-            .args(text(id, AQUA))
+            .arguments(text(id, AQUA))
             .append(FULL_STOP)
     );
 
@@ -555,7 +555,7 @@ public interface Message {
             // "&cA user for &4{}&c could not be found."
             .key("luckperms.command.misc.loading.error.user-not-found")
             .color(RED)
-            .args(text(id, DARK_RED))
+            .arguments(text(id, DARK_RED))
             .append(FULL_STOP)
     );
 
@@ -563,7 +563,7 @@ public interface Message {
             // "&cA group named &4{}&c could not be found."
             .key("luckperms.command.misc.loading.error.group-not-found")
             .color(RED)
-            .args(text(id, DARK_RED))
+            .arguments(text(id, DARK_RED))
             .append(FULL_STOP)
     );
 
@@ -571,7 +571,7 @@ public interface Message {
             // "&cA track named &4{}&c could not be found."
             .key("luckperms.command.misc.loading.error.track-not-found")
             .color(RED)
-            .args(text(id, DARK_RED))
+            .arguments(text(id, DARK_RED))
             .append(FULL_STOP)
     );
 
@@ -579,7 +579,7 @@ public interface Message {
             // "&cThere was an error whilst saving user data for &4{}&c."
             .key("luckperms.command.misc.loading.error.user-save-error")
             .color(RED)
-            .args(text().color(DARK_RED).append(user.getFormattedDisplayName()))
+            .arguments(text().color(DARK_RED).append(user.getFormattedDisplayName()))
             .append(FULL_STOP)
     );
 
@@ -587,7 +587,7 @@ public interface Message {
             // "&cThere was an error whilst saving group data for &4{}&c."
             .key("luckperms.command.misc.loading.error.group-save-error")
             .color(RED)
-            .args(text().color(DARK_RED).append(group.getFormattedDisplayName()))
+            .arguments(text().color(DARK_RED).append(group.getFormattedDisplayName()))
             .append(FULL_STOP)
     );
 
@@ -595,7 +595,7 @@ public interface Message {
             // "&cThere was an error whilst saving track data for &4{}&c."
             .key("luckperms.command.misc.loading.error.track-save-error")
             .color(RED)
-            .args(text(id, DARK_RED))
+            .arguments(text(id, DARK_RED))
             .append(FULL_STOP)
     );
 
@@ -603,7 +603,7 @@ public interface Message {
             // "&4{}&c is not a valid username/uuid."
             .key("luckperms.command.misc.loading.error.user-invalid")
             .color(RED)
-            .args(text(invalid, DARK_RED))
+            .arguments(text(invalid, DARK_RED))
             .append(FULL_STOP)
     );
 
@@ -611,7 +611,7 @@ public interface Message {
             // "&4{}&c is not a valid group name."
             .key("luckperms.command.misc.loading.error.group-invalid")
             .color(RED)
-            .args(text(invalid, DARK_RED))
+            .arguments(text(invalid, DARK_RED))
             .append(FULL_STOP)
     );
 
@@ -619,7 +619,7 @@ public interface Message {
             // "&4{}&c is not a valid track name."
             .key("luckperms.command.misc.loading.error.track-invalid")
             .color(RED)
-            .args(text(invalid, DARK_RED))
+            .arguments(text(invalid, DARK_RED))
             .append(FULL_STOP)
     );
 
@@ -627,7 +627,7 @@ public interface Message {
             // "&4{}&c is not a valid verbose filter. &7({})"
             .key("luckperms.command.verbose.invalid-filter")
             .color(RED)
-            .args(text(invalid, DARK_RED))
+            .arguments(text(invalid, DARK_RED))
             .append(FULL_STOP)
             .append(space())
             .append(text()
@@ -642,7 +642,7 @@ public interface Message {
             // "&bVerbose logging &aenabled &bfor checks matching &aANY&b."
             .key("luckperms.command.verbose.enabled")
             .color(AQUA)
-            .args(translatable("luckperms.command.verbose.enabled-term", GREEN), translatable("luckperms.command.verbose.query-any", GREEN))
+            .arguments(translatable("luckperms.command.verbose.enabled-term", GREEN), translatable("luckperms.command.verbose.query-any", GREEN))
             .append(FULL_STOP)
     );
 
@@ -650,7 +650,7 @@ public interface Message {
             // "&bVerbose logging &aenabled &bfor checks matching &a{}&b."
             .key("luckperms.command.verbose.enabled")
             .color(AQUA)
-            .args(translatable("luckperms.command.verbose.enabled-term", GREEN), text(query, GREEN))
+            .arguments(translatable("luckperms.command.verbose.enabled-term", GREEN), text(query, GREEN))
             .append(FULL_STOP)
     );
 
@@ -658,7 +658,7 @@ public interface Message {
             // "&bForcing &a{}&b to execute command &a/{}&b and reporting all checks made..."
             .key("luckperms.command.verbose.command-exec")
             .color(AQUA)
-            .args(text(user, GREEN), text(command, GREEN))
+            .arguments(text(user, GREEN), text(command, GREEN))
             .append(FULL_STOP)
     );
 
@@ -666,7 +666,7 @@ public interface Message {
             // "&bVerbose logging &cdisabled&b."
             .key("luckperms.command.verbose.off")
             .color(AQUA)
-            .args(translatable("luckperms.command.verbose.disabled-term", RED))
+            .arguments(translatable("luckperms.command.verbose.disabled-term", RED))
             .append(FULL_STOP)
     );
 
@@ -697,7 +697,7 @@ public interface Message {
             // "&bVerbose recording &aenabled &bfor checks matching &aANY&b."
             .key("luckperms.command.verbose.enabled-recording")
             .color(AQUA)
-            .args(translatable("luckperms.command.verbose.enabled-term", GREEN), translatable("luckperms.command.verbose.query-any", GREEN))
+            .arguments(translatable("luckperms.command.verbose.enabled-term", GREEN), translatable("luckperms.command.verbose.query-any", GREEN))
             .append(FULL_STOP)
     );
 
@@ -705,7 +705,7 @@ public interface Message {
             // "&bVerbose recording &aenabled &bfor checks matching &a{}&b."
             .key("luckperms.command.verbose.enabled-recording")
             .color(AQUA)
-            .args(translatable("luckperms.command.verbose.enabled-term", GREEN), text(query, GREEN))
+            .arguments(translatable("luckperms.command.verbose.enabled-term", GREEN), text(query, GREEN))
             .append(FULL_STOP)
     );
 
@@ -713,7 +713,7 @@ public interface Message {
             // "&bVerbose logging &cdisabled&b, uploading results..."
             .key("luckperms.command.verbose.uploading")
             .color(AQUA)
-            .args(translatable("luckperms.command.verbose.disabled-term", RED))
+            .arguments(translatable("luckperms.command.verbose.disabled-term", RED))
     );
 
     Args1<String> VERBOSE_RESULTS_URL = url -> joinNewline(
@@ -789,7 +789,7 @@ public interface Message {
             // "&aSearching for users and groups with &bpermissions {}&a..."
             .key("luckperms.command.search.searching.permission")
             .color(GREEN)
-            .args(text("permissions " + searchQuery, AQUA))
+            .arguments(text("permissions " + searchQuery, AQUA))
             .append(text("..."))
     );
 
@@ -797,7 +797,7 @@ public interface Message {
             // "&aSearching for users and groups who inherit from &b{}&a..."
             .key("luckperms.command.search.searching.inherit")
             .color(GREEN)
-            .args(text(group, AQUA))
+            .arguments(text(group, AQUA))
             .append(text("..."))
     );
 
@@ -811,7 +811,7 @@ public interface Message {
             // "&aFound &b{}&a entries from &b{}&a users and &b{}&a groups."
             .key("luckperms.command.search.result")
             .color(GREEN)
-            .args(text(entries, AQUA), text(users, AQUA), text(groups, AQUA))
+            .arguments(text(entries, AQUA), text(users, AQUA), text(groups, AQUA))
             .append(FULL_STOP)
     );
 
@@ -826,12 +826,12 @@ public interface Message {
                     .append(OPEN_BRACKET)
                     .append(translatable()
                             .key("luckperms.command.misc.page")
-                            .args(text(page, WHITE), text(totalPages, WHITE))
+                            .arguments(text(page, WHITE), text(totalPages, WHITE))
                     )
                     .append(text(" - "))
                     .append(translatable()
                             .key("luckperms.command.misc.page-entries")
-                            .args(text(totalEntries, WHITE))
+                            .arguments(text(totalEntries, WHITE))
                     )
                     .append(CLOSE_BRACKET)
             )
@@ -848,12 +848,12 @@ public interface Message {
                     .append(OPEN_BRACKET)
                     .append(translatable()
                             .key("luckperms.command.misc.page")
-                            .args(text(page, WHITE), text(totalPages, WHITE))
+                            .arguments(text(page, WHITE), text(totalPages, WHITE))
                     )
                     .append(text(" - "))
                     .append(translatable()
                             .key("luckperms.command.misc.page-entries")
-                            .args(text(totalEntries, WHITE))
+                            .arguments(text(totalEntries, WHITE))
                     )
                     .append(CLOSE_BRACKET)
             )
@@ -906,7 +906,7 @@ public interface Message {
                         translatable()
                                 .key("luckperms.command.generic.permission.info.click-to-remove")
                                 .color(GRAY)
-                                .args(text(holder))
+                                .arguments(text(holder))
                 );
 
                 String command = "/" + label + " " + NodeCommandFactory.undoCommand(node, holder, holderType, explicitGlobalContext);
@@ -950,7 +950,7 @@ public interface Message {
                         translatable()
                                 .key("luckperms.command.generic.parent.info.click-to-remove")
                                 .color(GRAY)
-                                .args(text(holder))
+                                .arguments(text(holder))
                 );
 
                 String command = "/" + label + " " + NodeCommandFactory.undoCommand(node, holder, holderType, explicitGlobalContext);
@@ -970,7 +970,7 @@ public interface Message {
             prefixed(translatable()
                     .key("luckperms.command.editor.apply-edits.right-server-question")
                     .color(RED)
-                    .args(text("/" + label + " applyedits"))),
+                    .arguments(text("/" + label + " applyedits"))),
             prefixed(translatable()
                     .key("luckperms.command.editor.apply-edits.bypass-warning")
                     .color(RED)
@@ -1042,7 +1042,7 @@ public interface Message {
             // "&cTarget user &4{}&c is not a valid uuid."
             .key("luckperms.command.misc.loading.error.user-not-uuid")
             .color(RED)
-            .args(text(target, DARK_RED))
+            .arguments(text(target, DARK_RED))
             .append(FULL_STOP)
     );
 
@@ -1050,7 +1050,7 @@ public interface Message {
             // "&cUnable to load target user &4{}&c."
             .key("luckperms.command.misc.loading.error.user-specific")
             .color(RED)
-            .args(text(target, DARK_RED))
+            .arguments(text(target, DARK_RED))
             .append(FULL_STOP)
     );
 
@@ -1065,7 +1065,7 @@ public interface Message {
             // "&aWeb editor data was applied to {} &b{}&a successfully."
             .key("luckperms.command.editor.apply-edits.success")
             .color(GREEN)
-            .args(text(type), text().color(AQUA).append(name))
+            .arguments(text(type), text().color(AQUA).append(name))
             .append(FULL_STOP)
     );
 
@@ -1075,7 +1075,7 @@ public interface Message {
             .append(OPEN_BRACKET)
             .append(translatable()
                     .key("luckperms.command.editor.apply-edits.success-summary")
-                    .args(
+                    .arguments(
                             text(additions, GREEN),
                             additions == 1 ?
                                     translatable("luckperms.command.editor.apply-edits.success.additions-singular") :
@@ -1209,7 +1209,7 @@ public interface Message {
                     .append(translatable()
                             .key("luckperms.command.editor.socket.untrusted.sessioninfo")
                             .color(GRAY)
-                            .args(
+                            .arguments(
                                     text(nonce, WHITE),
                                     text(browser, WHITE)
                             )
@@ -1223,13 +1223,13 @@ public interface Message {
                         if (console) {
                             builder.append(translatable()
                                     .key("luckperms.command.editor.socket.untrusted.prompt.runcommand")
-                                    .args(text(command, GREEN))
+                                    .arguments(text(command, GREEN))
                                     .build()
                             );
                         } else {
                             builder.append(translatable()
                                     .key("luckperms.command.editor.socket.untrusted.prompt.click")
-                                    .args(translatable()
+                                    .arguments(translatable()
                                             .key("luckperms.command.editor.socket.untrusted.prompt.click.action")
                                             .color(GREEN)
                                             .clickEvent(ClickEvent.runCommand(command))
@@ -1298,7 +1298,7 @@ public interface Message {
             // "&b{}&a was successfully created."
             .color(GREEN)
             .key("luckperms.command.generic.create.success")
-            .args(text().color(AQUA).append(name))
+            .arguments(text().color(AQUA).append(name))
             .append(FULL_STOP)
     );
 
@@ -1306,7 +1306,7 @@ public interface Message {
             // "&b{}&a was successfully deleted."
             .color(GREEN)
             .key("luckperms.command.generic.delete.success")
-            .args(text().color(AQUA).append(name))
+            .arguments(text().color(AQUA).append(name))
             .append(FULL_STOP)
     );
 
@@ -1314,7 +1314,7 @@ public interface Message {
             // "&b{}&a was successfully renamed to &b{}&a."
             .color(GREEN)
             .key("luckperms.command.generic.rename.success")
-            .args(
+            .arguments(
                     text().color(AQUA).append(from),
                     text().color(AQUA).append(to)
             )
@@ -1325,7 +1325,7 @@ public interface Message {
             // "&b{}&a was successfully cloned onto &b{}&a."
             .color(GREEN)
             .key("luckperms.command.generic.clone.success")
-            .args(
+            .arguments(
                     text().color(AQUA).append(from),
                     text().color(AQUA).append(to)
             )
@@ -1336,7 +1336,7 @@ public interface Message {
             // "&b{}&a already inherits from &b{}&a in context {}&a."
             .color(GREEN)
             .key("luckperms.command.generic.parent.already-inherits")
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text().color(AQUA).append(group.getFormattedDisplayName()),
                     formatContextSet(context)
@@ -1348,7 +1348,7 @@ public interface Message {
             // "&b{}&a does not inherit from &b{}&a in context {}&a."
             .color(GREEN)
             .key("luckperms.command.generic.parent.doesnt-inherit")
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text().color(AQUA).append(group),
                     formatContextSet(context)
@@ -1360,7 +1360,7 @@ public interface Message {
             // "&b{}&a already temporarily inherits from &b{}&a in context {}&a."
             .color(GREEN)
             .key("luckperms.command.generic.parent.already-temp-inherits")
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text().color(AQUA).append(group.getFormattedDisplayName()),
                     formatContextSet(context)
@@ -1372,7 +1372,7 @@ public interface Message {
             // "&b{}&a does not temporarily inherit from &b{}&a in context {}&a."
             .color(GREEN)
             .key("luckperms.command.generic.parent.doesnt-temp-inherit")
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text().color(AQUA).append(group),
                     formatContextSet(context)
@@ -1384,7 +1384,7 @@ public interface Message {
             // "&b{}&a already contains &b{}&a."
             .color(GREEN)
             .key("luckperms.command.track.already-contains")
-            .args(
+            .arguments(
                     text(track, AQUA),
                     text().color(AQUA).append(group.getFormattedDisplayName())
             )
@@ -1395,7 +1395,7 @@ public interface Message {
             // "&b{}&a doesn't contain &b{}&a."
             .color(GREEN)
             .key("luckperms.command.track.doesnt-contain")
-            .args(text(track, AQUA), text(group, AQUA))
+            .arguments(text(track, AQUA), text(group, AQUA))
             .append(FULL_STOP)
     );
 
@@ -1403,7 +1403,7 @@ public interface Message {
             // "&4{}&c is a member of multiple groups on this track. Unable to determine their location."
             .color(RED)
             .key("luckperms.command.track.error-multiple-groups")
-            .args(text().color(DARK_RED).append(user.getFormattedDisplayName()))
+            .arguments(text().color(DARK_RED).append(user.getFormattedDisplayName()))
             .append(FULL_STOP)
             .append(space())
             .append(translatable("luckperms.command.track.error-ambiguous"))
@@ -1414,7 +1414,7 @@ public interface Message {
             // "&4{}&c already exists!"
             .color(RED)
             .key("luckperms.command.generic.create.error-already-exists")
-            .args(text(name, DARK_RED))
+            .arguments(text(name, DARK_RED))
             .append(FULL_STOP)
     );
 
@@ -1422,7 +1422,7 @@ public interface Message {
             // "&4{}&c does not exist!"
             .color(RED)
             .key("luckperms.command.generic.delete.error-doesnt-exist")
-            .args(text(name, DARK_RED))
+            .arguments(text(name, DARK_RED))
             .append(FULL_STOP)
     );
 
@@ -1480,7 +1480,7 @@ public interface Message {
             // "&4{}&c cannot be used as it is empty or contains only one group."
             .color(RED)
             .key("luckperms.command.track.error-empty")
-            .args(text(name, DARK_RED))
+            .arguments(text(name, DARK_RED))
             .append(FULL_STOP)
     );
 
@@ -1512,7 +1512,7 @@ public interface Message {
             // "&aOther servers were notified via &b{} Messaging &asuccessfully."
             .color(GREEN)
             .key("luckperms.command.update-task.push.complete")
-            .args(text(serviceName + " Messaging", AQUA))
+            .arguments(text(serviceName + " Messaging", AQUA))
             .append(FULL_STOP)
     );
 
@@ -1683,7 +1683,7 @@ public interface Message {
                             .append(OPEN_BRACKET)
                             .append(translatable()
                                     .key("luckperms.command.info.online-players-unique")
-                                    .args(text(plugin.getConnectionListener().getUniqueConnections().size(), GREEN))
+                                    .arguments(text(plugin.getConnectionListener().getUniqueConnections().size(), GREEN))
                             )
                             .append(CLOSE_BRACKET)
                     )),
@@ -1701,7 +1701,7 @@ public interface Message {
                     .append(translatable()
                             .key("luckperms.command.info.local-data")
                             .color(GRAY)
-                            .args(
+                            .arguments(
                                     text(plugin.getUserManager().getAll().size(), GREEN),
                                     text(plugin.getGroupManager().getAll().size(), GREEN),
                                     text(plugin.getTrackManager().getAll().size(), GREEN)
@@ -1713,7 +1713,7 @@ public interface Message {
             // "&cThere was an error whilst creating &4{}&c."
             .key("luckperms.command.generic.create.error")
             .color(RED)
-            .args(text().color(DARK_RED).append(name))
+            .arguments(text().color(DARK_RED).append(name))
             .append(FULL_STOP)
     );
 
@@ -1721,7 +1721,7 @@ public interface Message {
             // "&cThere was an error whilst deleting &4{}&c."
             .key("luckperms.command.generic.delete.error")
             .color(RED)
-            .args(text().color(DARK_RED).append(name))
+            .arguments(text().color(DARK_RED).append(name))
             .append(FULL_STOP)
     );
 
@@ -1766,7 +1766,7 @@ public interface Message {
             .color(AQUA)
             .append(translatable()
                     .key("luckperms.command.generic.permission.info.title")
-                    .args(holder.getFormattedDisplayName())
+                    .arguments(holder.getFormattedDisplayName())
             )
             .append(text(':'))
             .append(text("  "))
@@ -1775,12 +1775,12 @@ public interface Message {
                     .append(OPEN_BRACKET)
                     .append(translatable()
                             .key("luckperms.command.misc.page")
-                            .args(text(page, WHITE), text(totalPages, WHITE))
+                            .arguments(text(page, WHITE), text(totalPages, WHITE))
                     )
                     .append(text(" - "))
                     .append(translatable()
                             .key("luckperms.command.misc.page-entries")
-                            .args(text(totalEntries, WHITE))
+                            .arguments(text(totalEntries, WHITE))
                     )
                     .append(CLOSE_BRACKET)
             )
@@ -1790,7 +1790,7 @@ public interface Message {
             // "&b{}&a does not have any permissions set."
             .key("luckperms.command.generic.permission.info.empty")
             .color(GREEN)
-            .args(text().color(AQUA).append(holder.getFormattedDisplayName()))
+            .arguments(text().color(AQUA).append(holder.getFormattedDisplayName()))
             .append(FULL_STOP)
     );
 
@@ -1813,7 +1813,7 @@ public interface Message {
                         translatable()
                                 .key("luckperms.command.generic.permission.info.click-to-remove")
                                 .color(GRAY)
-                                .args(text(holderName))
+                                .arguments(text(holderName))
                 );
 
                 String command = "/" + label + " " + NodeCommandFactory.undoCommand(node, holderName, holder.getType(), explicitGlobalContext);
@@ -1843,7 +1843,7 @@ public interface Message {
                                 translatable()
                                         .key("luckperms.command.generic.permission.info.click-to-remove")
                                         .color(GRAY)
-                                        .args(text(holderName))
+                                        .arguments(text(holderName))
                         );
 
                         String command = "/" + label + " " + NodeCommandFactory.undoCommand(node, holderName, holder.getType(), explicitGlobalContext);
@@ -1866,7 +1866,7 @@ public interface Message {
             .color(AQUA)
             .append(translatable()
                     .key("luckperms.command.generic.parent.info.title")
-                    .args(holder.getFormattedDisplayName())
+                    .arguments(holder.getFormattedDisplayName())
             )
             .append(text(':'))
             .append(text("  "))
@@ -1875,12 +1875,12 @@ public interface Message {
                     .append(OPEN_BRACKET)
                     .append(translatable()
                             .key("luckperms.command.misc.page")
-                            .args(text(page, WHITE), text(totalPages, WHITE))
+                            .arguments(text(page, WHITE), text(totalPages, WHITE))
                     )
                     .append(text(" - "))
                     .append(translatable()
                             .key("luckperms.command.misc.page-entries")
-                            .args(text(totalEntries, WHITE))
+                            .arguments(text(totalEntries, WHITE))
                     )
                     .append(CLOSE_BRACKET)
             )
@@ -1890,7 +1890,7 @@ public interface Message {
             // "&b{}&a does not have any parents defined."
             .key("luckperms.command.generic.parent.info.empty")
             .color(GREEN)
-            .args(text().color(AQUA).append(holder.getFormattedDisplayName()))
+            .arguments(text().color(AQUA).append(holder.getFormattedDisplayName()))
             .append(FULL_STOP)
     );
 
@@ -1913,7 +1913,7 @@ public interface Message {
                                 translatable()
                                         .key("luckperms.command.generic.parent.info.click-to-remove")
                                         .color(GRAY)
-                                        .args(text(holderName))
+                                        .arguments(text(holderName))
                         );
 
                         String command = "/" + label + " " + NodeCommandFactory.undoCommand(node, holderName, holder.getType(), explicitGlobalContext);
@@ -1945,7 +1945,7 @@ public interface Message {
                                         translatable()
                                                 .key("luckperms.command.generic.permission.info.click-to-remove")
                                                 .color(GRAY)
-                                                .args(text(holderName))
+                                                .arguments(text(holderName))
                                 );
 
                                 String command = "/" + label + " " + NodeCommandFactory.undoCommand(node, holderName, holder.getType(), explicitGlobalContext);
@@ -1970,7 +1970,7 @@ public interface Message {
             // "&b{}'s Tracks:"
             .key("luckperms.command.generic.show-tracks.title")
             .color(AQUA)
-            .args(holder.getFormattedDisplayName())
+            .arguments(holder.getFormattedDisplayName())
             .append(text(':'))
     );
 
@@ -1998,7 +1998,7 @@ public interface Message {
             // "&b{}&a is not on any tracks."
             .key("luckperms.command.generic.show-tracks.empty")
             .color(GREEN)
-            .args(text().color(AQUA).append(holder.getFormattedDisplayName()))
+            .arguments(text().color(AQUA).append(holder.getFormattedDisplayName()))
             .append(FULL_STOP)
     );
 
@@ -2006,7 +2006,7 @@ public interface Message {
             // &aPermission information for &b{}&a:
             .key("luckperms.command.generic.permission.check.info.title")
             .color(GREEN)
-            .args(text(permission, AQUA))
+            .arguments(text(permission, AQUA))
             .append(text(':'))
     );
 
@@ -2017,7 +2017,7 @@ public interface Message {
             .append(translatable()
                     .key("luckperms.command.generic.permission.check.info.directly")
                     .color(GRAY)
-                    .args(
+                    .arguments(
                             text().color(AQUA).append(holder.getFormattedDisplayName()),
                             text(permission, AQUA),
                             formatTristate(value),
@@ -2035,7 +2035,7 @@ public interface Message {
             .append(translatable()
                     .key("luckperms.command.generic.permission.check.info.inherited")
                     .color(GRAY)
-                    .args(
+                    .arguments(
                             text().color(AQUA).append(holder.getFormattedDisplayName()),
                             text(permission, AQUA),
                             formatTristate(value),
@@ -2053,7 +2053,7 @@ public interface Message {
             .append(translatable()
                     .key("luckperms.command.generic.permission.check.info.not-directly")
                     .color(GRAY)
-                    .args(
+                    .arguments(
                             text().color(AQUA).append(holder.getFormattedDisplayName()),
                             text(permission, AQUA)
                     )
@@ -2068,7 +2068,7 @@ public interface Message {
             .append(translatable()
                     .key("luckperms.command.generic.permission.check.info.not-inherited")
                     .color(GRAY)
-                    .args(
+                    .arguments(
                             text().color(AQUA).append(holder.getFormattedDisplayName()),
                             text(permission, AQUA)
                     )
@@ -2085,7 +2085,7 @@ public interface Message {
             prefixed(translatable()
                     .key("luckperms.command.generic.permission.check.result.title")
                     .color(GREEN)
-                    .args(text(permission, AQUA))
+                    .arguments(text(permission, AQUA))
                     .append(text(':'))),
             prefixed(text()
                     .color(DARK_AQUA)
@@ -2120,7 +2120,7 @@ public interface Message {
                             builder.append(translatable()
                                     .key("luckperms.command.generic.permission.check.info.directly")
                                     .color(GRAY)
-                                    .args(
+                                    .arguments(
                                             text().color(AQUA).content(origin),
                                             text(causeNode.getKey(), AQUA),
                                             formatBoolean(causeNode.getValue()),
@@ -2141,7 +2141,7 @@ public interface Message {
             // "&aSet &b{}&a to &b{}&a for &b{}&a in context {}&a."
             .key("luckperms.command.generic.permission.set")
             .color(GREEN)
-            .args(
+            .arguments(
                     text(permission, AQUA),
                     text(value, AQUA),
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
@@ -2154,7 +2154,7 @@ public interface Message {
             // "&b{}&a already has &b{}&a set in context {}&a."
             .key("luckperms.command.generic.permission.already-has")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text(permission, AQUA),
                     formatContextSet(context)
@@ -2166,7 +2166,7 @@ public interface Message {
             // "&aSet &b{}&a to &b{}&a for &b{}&a for a duration of &b{}&a in context {}&a."
             .key("luckperms.command.generic.permission.set-temp")
             .color(GREEN)
-            .args(
+            .arguments(
                     text(permission, AQUA),
                     text(value, AQUA),
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
@@ -2180,7 +2180,7 @@ public interface Message {
             // "&b{}&a already has &b{}&a set temporarily in context {}&a."
             .key("luckperms.command.generic.permission.already-has-temp")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text(permission, AQUA),
                     formatContextSet(context)
@@ -2192,7 +2192,7 @@ public interface Message {
             // "&aUnset &b{}&a for &b{}&a in context {}&a."
             .key("luckperms.command.generic.permission.unset")
             .color(GREEN)
-            .args(
+            .arguments(
                     text(permission, AQUA),
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     formatContextSet(context)
@@ -2204,7 +2204,7 @@ public interface Message {
             // "&b{}&a does not have &b{}&a set in context {}&a."
             .key("luckperms.command.generic.permission.doesnt-have")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text(permission, AQUA),
                     formatContextSet(context)
@@ -2216,7 +2216,7 @@ public interface Message {
             // "&aUnset temporary permission &b{}&a for &b{}&a in context {}&a."
             .key("luckperms.command.generic.permission.unset-temp")
             .color(GREEN)
-            .args(
+            .arguments(
                     text(permission, AQUA),
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     formatContextSet(context)
@@ -2228,7 +2228,7 @@ public interface Message {
             // "&aSet &b{}&a to &b{}&a for &b{}&a for a duration of &b{}&a in context {}&a, &b{}&a less than before."
             .key("luckperms.command.generic.permission.subtract")
             .color(GREEN)
-            .args(
+            .arguments(
                     text(permission, AQUA),
                     text(value, AQUA),
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
@@ -2243,7 +2243,7 @@ public interface Message {
             // "&b{}&a does not have &b{}&a set temporarily in context {}&a."
             .key("luckperms.command.generic.permission.doesnt-have-temp")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text(permission, AQUA),
                     formatContextSet(context)
@@ -2267,7 +2267,7 @@ public interface Message {
             // "&b{}&a now inherits permissions from &b{}&a in context {}&a."
             .key("luckperms.command.generic.parent.add")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text().color(AQUA).append(parent.getFormattedDisplayName()),
                     formatContextSet(context)
@@ -2279,7 +2279,7 @@ public interface Message {
             // "&b{}&a now inherits permissions from &b{}&a for a duration of &b{}&a in context {}&a."
             .key("luckperms.command.generic.parent.add-temp")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text().color(AQUA).append(parent.getFormattedDisplayName()),
                     text().color(AQUA).append(DurationFormatter.LONG.format(duration)),
@@ -2292,7 +2292,7 @@ public interface Message {
             // "&b{}&a had their existing parent groups cleared, and now only inherits &b{}&a in context {}&a."
             .key("luckperms.command.generic.parent.set")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text().color(AQUA).append(parent.getFormattedDisplayName()),
                     formatContextSet(context)
@@ -2304,7 +2304,7 @@ public interface Message {
             // "&b{}&a had their existing parent groups on track &b{}&a cleared, and now only inherits &b{}&a in context {}&a."
             .key("luckperms.command.generic.parent.set-track")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text(track, AQUA),
                     text().color(AQUA).append(parent.getFormattedDisplayName()),
@@ -2317,7 +2317,7 @@ public interface Message {
             // "&b{}&a no longer inherits permissions from &b{}&a in context {}&a."
             .key("luckperms.command.generic.parent.remove")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text().color(AQUA).append(parent),
                     formatContextSet(context)
@@ -2329,7 +2329,7 @@ public interface Message {
             // "&b{}&a no longer temporarily inherits permissions from &b{}&a in context {}&a."
             .key("luckperms.command.generic.parent.remove-temp")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text().color(AQUA).append(parent),
                     formatContextSet(context)
@@ -2341,7 +2341,7 @@ public interface Message {
             // "&b{}&a will inherit permissions from &b{}&a for a duration of &b{}&a in context {}&a, &b{}&a less than before."
             .key("luckperms.command.generic.parent.subtract")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text().color(AQUA).append(parent),
                     text().color(AQUA).append(DurationFormatter.LONG.format(duration)),
@@ -2355,7 +2355,7 @@ public interface Message {
             // "&b{}&a's nodes were cleared in context {}&a. (&b{}&a nodes were removed.)"
             .key("luckperms.command.generic.clear")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     formatContextSet(context)
             )
@@ -2365,7 +2365,7 @@ public interface Message {
                     .append(OPEN_BRACKET)
                     .append(translatable()
                             .key(removeCount == 1 ? "luckperms.command.generic.clear.node-removed-singular" : "luckperms.command.generic.clear.node-removed")
-                            .args(text(removeCount))
+                            .arguments(text(removeCount))
                             .color(AQUA)
                             .append(FULL_STOP)
                     )
@@ -2377,7 +2377,7 @@ public interface Message {
             // "&b{}&a's parents were cleared in context {}&a. (&b{}&a nodes were removed.)"
             .key("luckperms.command.generic.permission.clear")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     formatContextSet(context)
             )
@@ -2387,7 +2387,7 @@ public interface Message {
                     .append(OPEN_BRACKET)
                     .append(translatable()
                             .key(removeCount == 1 ? "luckperms.command.generic.clear.node-removed-singular" : "luckperms.command.generic.clear.node-removed")
-                            .args(text(removeCount))
+                            .arguments(text(removeCount))
                             .color(AQUA)
                             .append(FULL_STOP)
                     )
@@ -2399,7 +2399,7 @@ public interface Message {
             // "&b{}&a's parents were cleared in context {}&a. (&b{}&a nodes were removed.)"
             .key("luckperms.command.generic.parent.clear")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     formatContextSet(context)
             )
@@ -2409,7 +2409,7 @@ public interface Message {
                     .append(OPEN_BRACKET)
                     .append(translatable()
                             .key(removeCount == 1 ? "luckperms.command.generic.clear.node-removed-singular" : "luckperms.command.generic.clear.node-removed")
-                            .args(text(removeCount))
+                            .arguments(text(removeCount))
                             .color(AQUA)
                             .append(FULL_STOP)
                     )
@@ -2421,7 +2421,7 @@ public interface Message {
             // "&b{}&a's parents on track &b{}&a were cleared in context {}&a. (&b{}&a nodes were removed.)"
             .key("luckperms.command.generic.parent.clear-track")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text(track, AQUA),
                     formatContextSet(context)
@@ -2432,7 +2432,7 @@ public interface Message {
                     .append(OPEN_BRACKET)
                     .append(translatable()
                             .key(removeCount == 1 ? "luckperms.command.generic.clear.node-removed-singular" : "luckperms.command.generic.clear.node-removed")
-                            .args(text(removeCount))
+                            .arguments(text(removeCount))
                             .color(AQUA)
                             .append(FULL_STOP)
                     )
@@ -2444,7 +2444,7 @@ public interface Message {
             // "&b{}&a's meta matching type &b{}&a was cleared in context {}&a. (&b{}&a nodes were removed.)"
             .key("luckperms.command.generic.meta.clear")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text(key, AQUA),
                     formatContextSet(context)
@@ -2455,7 +2455,7 @@ public interface Message {
                     .append(OPEN_BRACKET)
                     .append(translatable()
                             .key(removeCount == 1 ? "luckperms.command.generic.clear.node-removed-singular" : "luckperms.command.generic.clear.node-removed")
-                            .args(text(removeCount))
+                            .arguments(text(removeCount))
                             .color(AQUA)
                             .append(FULL_STOP)
                     )
@@ -2467,7 +2467,7 @@ public interface Message {
             // "&cCould not parse date &4{}&c."
             .key("luckperms.command.misc.date-parse-error")
             .color(RED)
-            .args(text(invalid, DARK_RED))
+            .arguments(text(invalid, DARK_RED))
             .append(FULL_STOP)
     );
 
@@ -2481,21 +2481,21 @@ public interface Message {
             // "&b{}'s Prefixes"
             .key("luckperms.command.generic.chat-meta.info.title-prefix")
             .color(AQUA)
-            .args(holder.getFormattedDisplayName())
+            .arguments(holder.getFormattedDisplayName())
     );
 
     Args1<PermissionHolder> CHAT_META_SUFFIX_HEADER = holder -> prefixed(translatable()
             // "&b{}'s Suffixes"
             .key("luckperms.command.generic.chat-meta.info.title-suffix")
             .color(AQUA)
-            .args(holder.getFormattedDisplayName())
+            .arguments(holder.getFormattedDisplayName())
     );
 
     Args1<PermissionHolder> META_HEADER = holder -> prefixed(translatable()
             // "&b{}'s Meta"
             .key("luckperms.command.generic.meta.info.title")
             .color(AQUA)
-            .args(holder.getFormattedDisplayName())
+            .arguments(holder.getFormattedDisplayName())
     );
 
     Args3<ChatMetaNode<?, ?>, PermissionHolder, String> CHAT_META_ENTRY = (node, holder, label) -> prefixed(text()
@@ -2563,7 +2563,7 @@ public interface Message {
                                 translatable()
                                         .key("luckperms.command.generic.chat-meta.info.click-to-remove")
                                         .color(GRAY)
-                                        .args(text(node.getMetaType().toString()), text(originName))
+                                        .arguments(text(node.getMetaType().toString()), text(originName))
                         );
 
                         String command = "/" + label + " " + NodeCommandFactory.undoCommand(node, originName, originType, explicitGlobalContext);
@@ -2638,7 +2638,7 @@ public interface Message {
                                 translatable()
                                         .key("luckperms.command.generic.meta.info.click-to-remove")
                                         .color(GRAY)
-                                        .args(text(originName))
+                                        .arguments(text(originName))
                         );
 
                         String command = "/" + label + " " + NodeCommandFactory.undoCommand(node, originName, originType, explicitGlobalContext);
@@ -2652,7 +2652,7 @@ public interface Message {
             // "&b{} has no prefixes."
             .key("luckperms.command.generic.chat-meta.info.none-prefix")
             .color(AQUA)
-            .args(holder.getFormattedDisplayName())
+            .arguments(holder.getFormattedDisplayName())
             .append(FULL_STOP)
     );
 
@@ -2660,7 +2660,7 @@ public interface Message {
             // "&b{} has no suffixes."
             .key("luckperms.command.generic.chat-meta.info.none-suffix")
             .color(AQUA)
-            .args(holder.getFormattedDisplayName())
+            .arguments(holder.getFormattedDisplayName())
             .append(FULL_STOP)
     );
 
@@ -2668,7 +2668,7 @@ public interface Message {
             // "&b{} has no meta."
             .key("luckperms.command.generic.meta.info.none")
             .color(AQUA)
-            .args(holder.getFormattedDisplayName())
+            .arguments(holder.getFormattedDisplayName())
             .append(FULL_STOP)
     );
 
@@ -2676,7 +2676,7 @@ public interface Message {
             // "&cInvalid priority &4{}&c. Expected a number."
             .key("luckperms.command.misc.invalid-priority")
             .color(RED)
-            .args(text(invalid, DARK_RED))
+            .arguments(text(invalid, DARK_RED))
             .append(FULL_STOP)
             .append(space())
             .append(translatable("luckperms.command.misc.expected-number"))
@@ -2687,7 +2687,7 @@ public interface Message {
             // "&b{}&a already has {} &f'{}&f'&a set at a priority of &b{}&a in context {}&a."
             .key("luckperms.command.generic.chat-meta.already-has")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text(type.toString()),
                     text().color(WHITE).append(text('\'')).append(formatColoredValue(value)).append(text('\'')),
@@ -2701,7 +2701,7 @@ public interface Message {
             // "&b{}&a already has {} &f'{}&f'&a set temporarily at a priority of &b{}&a in context {}&a."
             .key("luckperms.command.generic.chat-meta.already-has-temp")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text(type.toString()),
                     text().color(WHITE).append(text('\'')).append(formatColoredValue(value)).append(text('\'')),
@@ -2715,7 +2715,7 @@ public interface Message {
             // "&b{}&a doesn't have {} &f'{}&f'&a set at a priority of &b{}&a in context {}&a."
             .key("luckperms.command.generic.chat-meta.doesnt-have")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text(type.toString()),
                     text().color(WHITE).append(text('\'')).append(formatColoredValue(value)).append(text('\'')),
@@ -2729,7 +2729,7 @@ public interface Message {
             // "&b{}&a doesn't have {} &f'{}&f'&a set temporarily at a priority of &b{}&a in context {}&a."
             .key("luckperms.command.generic.chat-meta.doesnt-have-temp")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text(type.toString()),
                     text().color(WHITE).append(text('\'')).append(formatColoredValue(value)).append(text('\'')),
@@ -2743,7 +2743,7 @@ public interface Message {
             // "&b{}&a had {} &f'{}&f'&a set at a priority of &b{}&a in context {}&a."
             .key("luckperms.command.generic.chat-meta.add")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text(type.toString()),
                     text().color(WHITE).append(text('\'')).append(formatColoredValue(value)).append(text('\'')),
@@ -2757,7 +2757,7 @@ public interface Message {
             // "&b{}&a had {} &f'{}&f'&a set at a priority of &b{}&a for a duration of &b{}&a in context {}&a."
             .key("luckperms.command.generic.chat-meta.add-temp")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text(type.toString()),
                     text().color(WHITE).append(text('\'')).append(formatColoredValue(value)).append(text('\'')),
@@ -2772,7 +2772,7 @@ public interface Message {
             // "&b{}&a had {} &f'{}&f'&a at priority &b{}&a removed in context {}&a."
             .key("luckperms.command.generic.chat-meta.remove")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text(type.toString()),
                     text().color(WHITE).append(text('\'')).append(formatColoredValue(value)).append(text('\'')),
@@ -2786,7 +2786,7 @@ public interface Message {
             // "&b{}&a had all {}es at priority &b{}&a removed in context {}&a."
             .key("luckperms.command.generic.chat-meta.remove-bulk")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text(type.toString() + "es"),
                     text(priority, AQUA),
@@ -2799,7 +2799,7 @@ public interface Message {
             // "&b{}&a had temporary {} &f'{}&f'&a at priority &b{}&a removed in context {}&a."
             .key("luckperms.command.generic.chat-meta.remove-temp")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text(type.toString()),
                     text().color(WHITE).append(text('\'')).append(text(value)).append(text('\'')),
@@ -2813,7 +2813,7 @@ public interface Message {
             // "&b{}&a had all temporary {}es at priority &b{}&a removed in context {}&a."
             .key("luckperms.command.generic.chat-meta.remove-temp-bulk")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text(type.toString() + "es"),
                     text(priority, AQUA),
@@ -2826,7 +2826,7 @@ public interface Message {
             // "&b{}&a already has meta key &f'{}&f'&a set to &f'{}&f'&a in context {}&a."
             .key("luckperms.command.generic.meta.already-has")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text().color(WHITE).append(text('\'')).append(text(key)).append(text('\'')),
                     text().color(WHITE).append(text('\'')).append(formatColoredValue(value)).append(text('\'')),
@@ -2839,7 +2839,7 @@ public interface Message {
             // "&b{}&a already has meta key &f'{}&f'&a temporarily set to &f'{}&f'&a in context {}&a."
             .key("luckperms.command.generic.meta.already-has-temp")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text().color(WHITE).append(text('\'')).append(text(key)).append(text('\'')),
                     text().color(WHITE).append(text('\'')).append(formatColoredValue(value)).append(text('\'')),
@@ -2852,7 +2852,7 @@ public interface Message {
             // "&b{}&a doesn't have meta key &f'{}&f'&a set in context {}&a."
             .key("luckperms.command.generic.meta.doesnt-have")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text().color(WHITE).append(text('\'')).append(text(key)).append(text('\'')),
                     formatContextSet(context)
@@ -2864,7 +2864,7 @@ public interface Message {
             // "&b{}&a doesn't have meta key &f'{}&f'&a set temporarily in context {}&a."
             .key("luckperms.command.generic.meta.doesnt-have-temp")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     text().color(WHITE).append(text('\'')).append(text(key)).append(text('\'')),
                     formatContextSet(context)
@@ -2876,7 +2876,7 @@ public interface Message {
             // "&aSet meta key &f'{}&f'&a to &f'{}&f'&a for &b{}&a in context {}&a."
             .key("luckperms.command.generic.meta.set")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(WHITE).append(text('\'')).append(text(key)).append(text('\'')),
                     text().color(WHITE).append(text('\'')).append(formatColoredValue(value)).append(text('\'')),
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
@@ -2889,7 +2889,7 @@ public interface Message {
             // "&aSet meta key &f'{}&f'&a to &f'{}&f'&a for &b{}&a for a duration of &b{}&a in context {}&a."
             .key("luckperms.command.generic.meta.set-temp")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(WHITE).append(text('\'')).append(text(key)).append(text('\'')),
                     text().color(WHITE).append(text('\'')).append(formatColoredValue(value)).append(text('\'')),
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
@@ -2903,7 +2903,7 @@ public interface Message {
             // "&aUnset meta key &f'{}&f'&a for &b{}&a in context {}&a."
             .key("luckperms.command.generic.meta.unset")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(WHITE).append(text('\'')).append(text(key)).append(text('\'')),
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     formatContextSet(context)
@@ -2915,7 +2915,7 @@ public interface Message {
             // "&aUnset temporary meta key &f'{}&f'&a for &b{}&a in context {}&a."
             .key("luckperms.command.generic.meta.unset-temp")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(WHITE).append(text('\'')).append(text(key)).append(text('\'')),
                     text().color(AQUA).append(holder.getFormattedDisplayName()),
                     formatContextSet(context)
@@ -2941,7 +2941,7 @@ public interface Message {
             // "&cInvalid type. Was expecting 'all', 'users' or 'groups'."
             .key("luckperms.command.bulkupdate.invalid-data-type")
             .color(RED)
-            .args(text("'all', 'users' or 'groups'"))
+            .arguments(text("'all', 'users' or 'groups'"))
             .append(FULL_STOP)
     );
 
@@ -2949,12 +2949,12 @@ public interface Message {
             // &cInvalid constraint &4{}&c. Constraints should be in the format '&f<field> <comparison operator> <value>&c'."
             .key("luckperms.command.bulkupdate.invalid-constraint")
             .color(RED)
-            .args(text(invalid, DARK_RED))
+            .arguments(text(invalid, DARK_RED))
             .append(FULL_STOP)
             .append(space())
             .append(translatable()
                     .key("luckperms.command.bulkupdate.invalid-constraint-format")
-                    .args(text()
+                    .arguments(text()
                             .append(text('\''))
                             .append(text("<field> <comparison operator> <value>", WHITE))
                             .append(text('\''))
@@ -2966,7 +2966,7 @@ public interface Message {
             // "&cInvalid comparison operator '&4{}&c'. Expected one of the following: &f==  !=  ~~  ~!"
             .key("luckperms.command.bulkupdate.invalid-comparison")
             .color(RED)
-            .args(text()
+            .arguments(text()
                     .append(text('\''))
                     .append(text(invalid, DARK_RED))
                     .append(text('\''))
@@ -2976,7 +2976,7 @@ public interface Message {
             .append(translatable()
                     .key("luckperms.command.bulkupdate.invalid-comparison-format")
                     .color(WHITE)
-                    .args(text("==  !=  ~~  ~!")))
+                    .arguments(text("==  !=  ~~  ~!")))
     );
 
     Args1<String> BULK_UPDATE_QUEUED = id -> prefixed(translatable()
@@ -2997,7 +2997,7 @@ public interface Message {
             // "&aRun &b/{} bulkupdate confirm {} &ato execute the update."
             .key("luckperms.command.bulkupdate.confirm")
             .color(GREEN)
-            .args(text("/" + label + " bulkupdate confirm " + id, AQUA))
+            .arguments(text("/" + label + " bulkupdate confirm " + id, AQUA))
             .append(FULL_STOP)
     );
 
@@ -3005,7 +3005,7 @@ public interface Message {
             // "&aOperation with id &b{}&a does not exist or has expired."
             .key("luckperms.command.bulkupdate.unknown-id")
             .color(GREEN)
-            .args(text(id, AQUA))
+            .arguments(text(id, AQUA))
             .append(FULL_STOP)
     );
 
@@ -3111,7 +3111,7 @@ public interface Message {
             prefixed(translatable()
                     .key("luckperms.command.translations.download-prompt")
                     .color(AQUA)
-                    .args(text("/" + label + " translations install", GREEN))
+                    .arguments(text("/" + label + " translations install", GREEN))
                     .append(FULL_STOP)),
             prefixed(translatable()
                     .key("luckperms.command.translations.download-override-warning")
@@ -3129,7 +3129,7 @@ public interface Message {
             // "&aInstalling language {}..."
             .key("luckperms.command.translations.installing-specific")
             .color(GREEN)
-            .args(text(name))
+            .arguments(text(name))
     );
 
     Args0 TRANSLATIONS_INSTALL_COMPLETE = () -> prefixed(translatable()
@@ -3322,7 +3322,7 @@ public interface Message {
             // "&b{}&a's primary group was set to &b{}&a."
             .key("luckperms.command.user.primarygroup.set")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(user.getFormattedDisplayName()),
                     text().color(AQUA).append(group.getFormattedDisplayName())
             )
@@ -3333,7 +3333,7 @@ public interface Message {
             // "&aWarning: The primary group calculation method being used by this server ({}) may not reflect this change."
             .key("luckperms.command.user.primarygroup.warn-option")
             .color(GREEN)
-            .args(text(option))
+            .arguments(text(option))
             .append(FULL_STOP)
     );
 
@@ -3341,7 +3341,7 @@ public interface Message {
             // "&b{}&a already has &b{}&a set as their primary group."
             .key("luckperms.command.user.primarygroup.already-has")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(user.getFormattedDisplayName()),
                     text().color(AQUA).append(group.getFormattedDisplayName())
             )
@@ -3352,7 +3352,7 @@ public interface Message {
             // "&b{}&a was not already a member of &b{}&a, adding them now."
             .key("luckperms.command.user.primarygroup.not-member")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(user.getFormattedDisplayName()),
                     text().color(AQUA).append(group.getFormattedDisplayName())
             )
@@ -3363,7 +3363,7 @@ public interface Message {
             // "&b{}&a isn't already in any groups on &b{}&a."
             .key("luckperms.command.user.track.error-not-contain-group")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(user.getFormattedDisplayName()),
                     text(track, AQUA)
             )
@@ -3381,7 +3381,7 @@ public interface Message {
             // "&b{}&a isn't in any groups on &b{}&a, so they were added to the first group, &b{}&a in context {}&a."
             .key("luckperms.command.user.promote.added-to-first")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(user.getFormattedDisplayName()),
                     text(track, AQUA),
                     text(group, AQUA),
@@ -3394,7 +3394,7 @@ public interface Message {
             // "&b{}&a isn't in any groups on &b{}&a, so was not promoted."
             .key("luckperms.command.user.promote.not-on-track")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(user.getFormattedDisplayName()),
                     text(track, AQUA)
             )
@@ -3405,7 +3405,7 @@ public interface Message {
             // "&aPromoting &b{}&a along track &b{}&a from &b{}&a to &b{}&a in context {}&a."
             .key("luckperms.command.user.promote.success")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(user.getFormattedDisplayName()),
                     text(track, AQUA),
                     text(from, AQUA),
@@ -3419,7 +3419,7 @@ public interface Message {
             // "&aThe end of track &b{}&a was reached, unable to promote &b{}&a."
             .key("luckperms.command.user.promote.end-of-track")
             .color(GREEN)
-            .args(
+            .arguments(
                     text(track, AQUA),
                     text().color(AQUA).append(user.getFormattedDisplayName())
             )
@@ -3432,7 +3432,7 @@ public interface Message {
             prefixed(translatable()
                     .key("luckperms.command.user.promote.next-group-deleted")
                     .color(GREEN)
-                    .args(text(name, AQUA))
+                    .arguments(text(name, AQUA))
                     .append(FULL_STOP)
                     .append(space())
                     .append(translatable("luckperms.command.user.promote.unable-to-promote"))
@@ -3447,7 +3447,7 @@ public interface Message {
             // "&aDemoting &b{}&a along track &b{}&a from &b{}&a to &b{}&a in context {}&a."
             .key("luckperms.command.user.demote.success")
             .color(GREEN)
-            .args(
+            .arguments(
                     text().color(AQUA).append(user.getFormattedDisplayName()),
                     text(track, AQUA),
                     text(from, AQUA),
@@ -3461,7 +3461,7 @@ public interface Message {
             // "&aThe end of track &b{}&a was reached, so &b{}&a was removed from &b{}&a."
             .key("luckperms.command.user.demote.end-of-track")
             .color(GREEN)
-            .args(
+            .arguments(
                     text(track, AQUA),
                     text().color(AQUA).append(user.getFormattedDisplayName()),
                     text(group, AQUA)
@@ -3473,7 +3473,7 @@ public interface Message {
             // "&aThe end of track &b{}&a was reached, but &b{}&a was not removed from the first group."
             .key("luckperms.command.user.demote.end-of-track-not-removed")
             .color(GREEN)
-            .args(
+            .arguments(
                     text(track, AQUA),
                     text().color(AQUA).append(user.getFormattedDisplayName())
             )
@@ -3486,7 +3486,7 @@ public interface Message {
             prefixed(translatable()
                     .key("luckperms.command.user.demote.previous-group-deleted")
                     .color(GREEN)
-                    .args(text(name, AQUA))
+                    .arguments(text(name, AQUA))
                     .append(FULL_STOP)
                     .append(space())
                     .append(translatable("luckperms.command.user.demote.unable-to-demote"))
@@ -3604,7 +3604,7 @@ public interface Message {
             // "&aSet weight to &b{}&a for group &b{}&a."
             .key("luckperms.command.group.setweight.set")
             .color(GREEN)
-            .args(
+            .arguments(
                     text(weight, AQUA),
                     text().color(AQUA).append(group.getFormattedDisplayName())
             )
@@ -3615,7 +3615,7 @@ public interface Message {
             // "&b{}&a doesn't have a display name set."
             .key("luckperms.command.group.setdisplayname.doesnt-have")
             .color(GREEN)
-            .args(text(group, AQUA))
+            .arguments(text(group, AQUA))
             .append(FULL_STOP)
     );
 
@@ -3623,7 +3623,7 @@ public interface Message {
             // "&b{}&a already has a display name of &b{}&a."
             .key("luckperms.command.group.setdisplayname.already-has")
             .color(GREEN)
-            .args(text(group, AQUA), text(displayName, AQUA))
+            .arguments(text(group, AQUA), text(displayName, AQUA))
             .append(FULL_STOP)
     );
 
@@ -3631,7 +3631,7 @@ public interface Message {
             // "&aThe display name &b{}&a is already being used by &b{}&a."
             .key("luckperms.command.group.setdisplayname.already-in-use")
             .color(GREEN)
-            .args(text(displayName, AQUA), text(group, AQUA))
+            .arguments(text(displayName, AQUA), text(group, AQUA))
             .append(FULL_STOP)
     );
 
@@ -3639,7 +3639,7 @@ public interface Message {
             // "&aSet display name to &b{}&a for group &b{}&a in context {}&a."
             .key("luckperms.command.group.setdisplayname.set")
             .color(GREEN)
-            .args(text(displayName, AQUA), text(group, AQUA), formatContextSet(context))
+            .arguments(text(displayName, AQUA), text(group, AQUA), formatContextSet(context))
             .append(FULL_STOP)
     );
 
@@ -3647,7 +3647,7 @@ public interface Message {
             // "&aRemoved display name for group &b{}&a in context {}&a."
             .key("luckperms.command.group.setdisplayname.removed")
             .color(GREEN)
-            .args(text(group, AQUA), formatContextSet(context))
+            .arguments(text(group, AQUA), formatContextSet(context))
             .append(FULL_STOP)
     );
 
@@ -3680,7 +3680,7 @@ public interface Message {
             // "&b{}&a's groups track was cleared."
             .key("luckperms.command.track.clear")
             .color(GREEN)
-            .args(text(name, AQUA))
+            .arguments(text(name, AQUA))
             .append(FULL_STOP)
     );
 
@@ -3688,7 +3688,7 @@ public interface Message {
             // "&aGroup &b{}&a was appended to track &b{}&a."
             .key("luckperms.command.track.append.success")
             .color(GREEN)
-            .args(text(group, AQUA), text(track, AQUA))
+            .arguments(text(group, AQUA), text(track, AQUA))
             .append(FULL_STOP)
     );
 
@@ -3696,7 +3696,7 @@ public interface Message {
             // "&aGroup &b{}&a was inserted into track &b{}&a at position &b{}&a."
             .key("luckperms.command.track.insert.success")
             .color(GREEN)
-            .args(text(group, AQUA), text(track, AQUA), text(position, AQUA))
+            .arguments(text(group, AQUA), text(track, AQUA), text(position, AQUA))
             .append(FULL_STOP)
     );
 
@@ -3704,7 +3704,7 @@ public interface Message {
             // "&cExpected number but instead received: {}"
             .key("luckperms.command.track.insert.error-number")
             .color(RED)
-            .args(text(invalid))
+            .arguments(text(invalid))
             .append(FULL_STOP)
     );
 
@@ -3712,7 +3712,7 @@ public interface Message {
             // "&cUnable to insert at position &4{}&c. &7(invalid position)"
             .key("luckperms.command.track.insert.error-invalid-pos")
             .color(RED)
-            .args(text(position, DARK_RED))
+            .arguments(text(position, DARK_RED))
             .append(FULL_STOP)
             .append(space())
             .append(text()
@@ -3726,7 +3726,7 @@ public interface Message {
             // "&aGroup &b{}&a was removed from track &b{}&a."
             .key("luckperms.command.track.remove.success")
             .color(GREEN)
-            .args(text(group, AQUA), text(track, AQUA))
+            .arguments(text(group, AQUA), text(track, AQUA))
             .append(FULL_STOP)
     );
 
@@ -3745,7 +3745,7 @@ public interface Message {
             .append(space())
             .append(translatable()
                     .key("luckperms.command.log.invalid-page-range")
-                    .args(text(1, DARK_RED), text(maxPage, DARK_RED))
+                    .arguments(text(1, DARK_RED), text(maxPage, DARK_RED))
             )
             .append(FULL_STOP)
     );
@@ -3769,7 +3769,7 @@ public interface Message {
                             .append(translatable()
                                     .color(GRAY)
                                     .key("luckperms.duration.since")
-                                    .args(DurationFormatter.CONCISE_LOW_ACCURACY.format(action.getDurationSince()))
+                                    .arguments(DurationFormatter.CONCISE_LOW_ACCURACY.format(action.getDurationSince()))
                                     .hoverEvent(HoverEvent.showText(text().append(translatable("luckperms.duration.date", GRAY)).append(text(": ", GRAY)).append(text(DATE_FORMAT.format(action.getTimestamp()), AQUA))))
                             )
                             .append(CLOSE_BRACKET)
@@ -3811,7 +3811,7 @@ public interface Message {
             // "&aEnabled&b logging output."
             .key("luckperms.command.log.notify.changed-state")
             .color(AQUA)
-            .args(translatable("luckperms.command.log.notify.enabled-term", GREEN))
+            .arguments(translatable("luckperms.command.log.notify.enabled-term", GREEN))
             .append(FULL_STOP)
     );
 
@@ -3819,7 +3819,7 @@ public interface Message {
             // "&cDisabled&b logging output."
             .key("luckperms.command.log.notify.changed-state")
             .color(AQUA)
-            .args(translatable("luckperms.command.log.notify.disabled-term", RED))
+            .arguments(translatable("luckperms.command.log.notify.disabled-term", RED))
             .append(FULL_STOP)
     );
 
@@ -3841,7 +3841,7 @@ public interface Message {
             // "&cState unknown. Expecting \"on\" or \"off\"."
             .key("luckperms.command.log.notify.invalid-state")
             .color(RED)
-            .args(text("\"on\""), text("\"off\""))
+            .arguments(text("\"on\""), text("\"off\""))
             .append(FULL_STOP)
     );
 
@@ -3850,7 +3850,7 @@ public interface Message {
             .color(GREEN)
             .append(translatable()
                     .key("luckperms.command.log.show.search")
-                    .args(text(query, AQUA))
+                    .arguments(text(query, AQUA))
             )
             .append(text("  "))
             .append(text()
@@ -3858,7 +3858,7 @@ public interface Message {
                     .append(OPEN_BRACKET)
                     .append(translatable()
                             .key("luckperms.command.misc.page")
-                            .args(text(page, WHITE), text(totalPages, WHITE))
+                            .arguments(text(page, WHITE), text(totalPages, WHITE))
                     )
                     .append(CLOSE_BRACKET)
             )
@@ -3874,7 +3874,7 @@ public interface Message {
                     .append(OPEN_BRACKET)
                     .append(translatable()
                             .key("luckperms.command.misc.page")
-                            .args(text(page, WHITE), text(totalPages, WHITE))
+                            .arguments(text(page, WHITE), text(totalPages, WHITE))
                     )
                     .append(CLOSE_BRACKET)
             )
@@ -3885,7 +3885,7 @@ public interface Message {
             .color(GREEN)
             .append(translatable()
                     .key("luckperms.command.log.show.by")
-                    .args(text(name, AQUA))
+                    .arguments(text(name, AQUA))
             )
             .append(text("  "))
             .append(text()
@@ -3893,7 +3893,7 @@ public interface Message {
                     .append(OPEN_BRACKET)
                     .append(translatable()
                             .key("luckperms.command.misc.page")
-                            .args(text(page, WHITE), text(totalPages, WHITE))
+                            .arguments(text(page, WHITE), text(totalPages, WHITE))
                     )
                     .append(CLOSE_BRACKET)
             )
@@ -3904,7 +3904,7 @@ public interface Message {
             .color(GREEN)
             .append(translatable()
                     .key("luckperms.command.log.show.history")
-                    .args(text("user"), text(name, AQUA))
+                    .arguments(text("user"), text(name, AQUA))
             )
             .append(text("  "))
             .append(text()
@@ -3912,7 +3912,7 @@ public interface Message {
                     .append(OPEN_BRACKET)
                     .append(translatable()
                             .key("luckperms.command.misc.page")
-                            .args(text(page, WHITE), text(totalPages, WHITE))
+                            .arguments(text(page, WHITE), text(totalPages, WHITE))
                     )
                     .append(CLOSE_BRACKET)
             )
@@ -3923,7 +3923,7 @@ public interface Message {
             .color(GREEN)
             .append(translatable()
                     .key("luckperms.command.log.show.history")
-                    .args(text("group"), text(name, AQUA))
+                    .arguments(text("group"), text(name, AQUA))
             )
             .append(text("  "))
             .append(text()
@@ -3931,7 +3931,7 @@ public interface Message {
                     .append(OPEN_BRACKET)
                     .append(translatable()
                             .key("luckperms.command.misc.page")
-                            .args(text(page, WHITE), text(totalPages, WHITE))
+                            .arguments(text(page, WHITE), text(totalPages, WHITE))
                     )
                     .append(CLOSE_BRACKET)
             )
@@ -3942,7 +3942,7 @@ public interface Message {
             .color(GREEN)
             .append(translatable()
                     .key("luckperms.command.log.show.history")
-                    .args(text("track"), text(name, AQUA))
+                    .arguments(text("track"), text(name, AQUA))
             )
             .append(text("  "))
             .append(text()
@@ -3950,7 +3950,7 @@ public interface Message {
                     .append(OPEN_BRACKET)
                     .append(translatable()
                             .key("luckperms.command.misc.page")
-                            .args(text(page, WHITE), text(totalPages, WHITE))
+                            .arguments(text(page, WHITE), text(totalPages, WHITE))
                     )
                     .append(CLOSE_BRACKET)
             )
@@ -4014,7 +4014,7 @@ public interface Message {
             // "&aSuccessfully exported to &b{}&a."
             .key("luckperms.command.export.file.success")
             .color(GREEN)
-            .args(text(file, AQUA))
+            .arguments(text(file, AQUA))
             .append(FULL_STOP)
     );
 
@@ -4137,7 +4137,7 @@ public interface Message {
             .append(translatable()
                     .key("luckperms.command.import.progress.operations")
                     .color(WHITE)
-                    .args(text(processed, AQUA), text(total, AQUA))
+                    .arguments(text(processed, AQUA), text(total, AQUA))
                     .append(FULL_STOP)
             )
     );
